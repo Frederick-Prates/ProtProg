@@ -41,15 +41,20 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.move1 = new System.Windows.Forms.PictureBox();
+            this.moveF = new System.Windows.Forms.PictureBox();
             this.moveH = new System.Windows.Forms.PictureBox();
             this.moveAH = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btBloco = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.BtGerar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LoopPb = new System.Windows.Forms.PictureBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel5 = new System.Windows.Forms.Panel();
             this.LoopPcBox2 = new System.Windows.Forms.PictureBox();
             this.LoopPcBox5 = new System.Windows.Forms.PictureBox();
@@ -64,11 +69,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmd1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.move1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveAH)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LoopPb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox5)).BeginInit();
@@ -204,27 +210,15 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.move1);
+            this.panel3.Controls.Add(this.moveF);
             this.panel3.Controls.Add(this.moveH);
             this.panel3.Controls.Add(this.moveAH);
+            this.panel3.Controls.Add(this.LoopPb);
             this.panel3.Location = new System.Drawing.Point(12, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(182, 358);
             this.panel3.TabIndex = 10;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::ProtProg.Properties.Resources.ultimate_31_256;
-            this.pictureBox1.Location = new System.Drawing.Point(61, 206);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 56);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "mH";
             // 
             // label3
             // 
@@ -235,20 +229,20 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Pegue daqui...";
             // 
-            // move1
+            // moveF
             // 
-            this.move1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.move1.Image = global::ProtProg.Properties.Resources.reto2;
-            this.move1.Location = new System.Drawing.Point(61, 94);
-            this.move1.Name = "move1";
-            this.move1.Size = new System.Drawing.Size(53, 56);
-            this.move1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.move1.TabIndex = 0;
-            this.move1.TabStop = false;
-            this.move1.Tag = "Up";
-            this.move1.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBox1_DragDrop);
-            this.move1.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBox1_DragEnter);
-            this.move1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.moveF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.moveF.Image = global::ProtProg.Properties.Resources.reto2;
+            this.moveF.Location = new System.Drawing.Point(61, 94);
+            this.moveF.Name = "moveF";
+            this.moveF.Size = new System.Drawing.Size(53, 56);
+            this.moveF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.moveF.TabIndex = 0;
+            this.moveF.TabStop = false;
+            this.moveF.Tag = "Up";
+            this.moveF.DragDrop += new System.Windows.Forms.DragEventHandler(this.moveF_DragDrop);
+            this.moveF.DragEnter += new System.Windows.Forms.DragEventHandler(this.moveF_DragEnter);
+            this.moveF.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveF_MouseDown);
             // 
             // moveH
             // 
@@ -312,11 +306,88 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel4.Controls.Add(this.BtGerar);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.numericUpDown1);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Location = new System.Drawing.Point(12, 395);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(557, 129);
             this.panel4.TabIndex = 14;
+            // 
+            // BtGerar
+            // 
+            this.BtGerar.Location = new System.Drawing.Point(395, 38);
+            this.BtGerar.Name = "BtGerar";
+            this.BtGerar.Size = new System.Drawing.Size(139, 62);
+            this.BtGerar.TabIndex = 15;
+            this.BtGerar.Text = "Gerar";
+            this.BtGerar.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(114, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Bloco de Repetição";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(327, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Vez(es)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Loop";
+            // 
+            // LoopPb
+            // 
+            this.LoopPb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LoopPb.Image = global::ProtProg.Properties.Resources._123123123123312312313132312;
+            this.LoopPb.Location = new System.Drawing.Point(61, 206);
+            this.LoopPb.Name = "LoopPb";
+            this.LoopPb.Size = new System.Drawing.Size(53, 56);
+            this.LoopPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LoopPb.TabIndex = 7;
+            this.LoopPb.TabStop = false;
+            this.LoopPb.Tag = "mH";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(323, 37);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.ReadOnly = true;
+            this.numericUpDown1.Size = new System.Drawing.Size(57, 62);
+            this.numericUpDown1.TabIndex = 16;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // panel5
             // 
@@ -327,7 +398,7 @@
             this.panel5.Controls.Add(this.LoopPcBox3);
             this.panel5.Controls.Add(this.LoopPcBox4);
             this.panel5.Controls.Add(this.LoopPcBox1);
-            this.panel5.Location = new System.Drawing.Point(90, 34);
+            this.panel5.Location = new System.Drawing.Point(18, 37);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(299, 62);
             this.panel5.TabIndex = 15;
@@ -409,11 +480,13 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.move1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveAH)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LoopPb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox5)).EndInit();
@@ -426,7 +499,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox move1;
+        private System.Windows.Forms.PictureBox moveF;
         private System.Windows.Forms.PictureBox cmd1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox cmd5;
@@ -446,7 +519,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btBloco;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox LoopPcBox2;
@@ -454,6 +526,12 @@
         private System.Windows.Forms.PictureBox LoopPcBox3;
         private System.Windows.Forms.PictureBox LoopPcBox4;
         private System.Windows.Forms.PictureBox LoopPcBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.PictureBox LoopPb;
+        private System.Windows.Forms.Button BtGerar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 
