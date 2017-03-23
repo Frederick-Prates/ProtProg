@@ -45,15 +45,14 @@
             this.moveF = new System.Windows.Forms.PictureBox();
             this.moveH = new System.Windows.Forms.PictureBox();
             this.moveAH = new System.Windows.Forms.PictureBox();
+            this.LoopPb = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.btBloco = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BtGerar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.LoopPb = new System.Windows.Forms.PictureBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel5 = new System.Windows.Forms.Panel();
             this.LoopPcBox2 = new System.Windows.Forms.PictureBox();
@@ -72,8 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.moveF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveAH)).BeginInit();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPb)).BeginInit();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox2)).BeginInit();
@@ -176,7 +175,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(381, 238);
+            this.button1.Location = new System.Drawing.Point(381, 239);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 41);
             this.button1.TabIndex = 8;
@@ -274,9 +273,21 @@
             this.moveAH.DragEnter += new System.Windows.Forms.DragEventHandler(this.moveAH_DragEnter);
             this.moveAH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveAH_MouseDown);
             // 
+            // LoopPb
+            // 
+            this.LoopPb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LoopPb.Image = global::ProtProg.Properties.Resources._123123123123312312313132312;
+            this.LoopPb.Location = new System.Drawing.Point(61, 206);
+            this.LoopPb.Name = "LoopPb";
+            this.LoopPb.Size = new System.Drawing.Size(53, 56);
+            this.LoopPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LoopPb.TabIndex = 7;
+            this.LoopPb.TabStop = false;
+            this.LoopPb.Tag = "mL";
+            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(478, 238);
+            this.button2.Location = new System.Drawing.Point(478, 239);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 41);
             this.button2.TabIndex = 11;
@@ -292,16 +303,6 @@
             this.button3.TabIndex = 12;
             this.button3.Text = "Enviar";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btBloco
-            // 
-            this.btBloco.Location = new System.Drawing.Point(381, 282);
-            this.btBloco.Name = "btBloco";
-            this.btBloco.Size = new System.Drawing.Size(188, 41);
-            this.btBloco.TabIndex = 13;
-            this.btBloco.Text = "Gerar Bloco";
-            this.btBloco.UseVisualStyleBackColor = true;
-            this.btBloco.Click += new System.EventHandler(this.BtBloco_Click);
             // 
             // panel4
             // 
@@ -325,6 +326,7 @@
             this.BtGerar.TabIndex = 15;
             this.BtGerar.Text = "Gerar";
             this.BtGerar.UseVisualStyleBackColor = true;
+            this.BtGerar.Click += new System.EventHandler(this.BtGerar_Click);
             // 
             // label7
             // 
@@ -352,18 +354,6 @@
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Loop";
-            // 
-            // LoopPb
-            // 
-            this.LoopPb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LoopPb.Image = global::ProtProg.Properties.Resources._123123123123312312313132312;
-            this.LoopPb.Location = new System.Drawing.Point(61, 206);
-            this.LoopPb.Name = "LoopPb";
-            this.LoopPb.Size = new System.Drawing.Size(53, 56);
-            this.LoopPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LoopPb.TabIndex = 7;
-            this.LoopPb.TabStop = false;
-            this.LoopPb.Tag = "mH";
             // 
             // numericUpDown1
             // 
@@ -460,7 +450,6 @@
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(586, 536);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.btBloco);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel3);
@@ -483,9 +472,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.moveF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveAH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoopPb)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LoopPb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox2)).EndInit();
@@ -518,7 +507,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btBloco;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox LoopPcBox2;

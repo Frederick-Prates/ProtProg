@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InTheHand;
+using InTheHand.Net.Bluetooth;
+using InTheHand.Net.Ports;
+using InTheHand.Net.Sockets;
+using System.IO;
+using System.Threading;
+
 
 namespace ProtProg
 {
     public partial class Form1 : Form
     {
+        String loop;
         public Form1()
         {
             InitializeComponent();
@@ -21,15 +29,10 @@ namespace ProtProg
         private void Form1_Load(object sender, EventArgs e)
         {
             HabilitaDrops();
-
             // Habilita icone "Move Reto" para outra PicBoxes
             MoveF();
-
-
             // Habilita icone "Move 45 Horario" para outra PicBoxes
             Move45H();
-
-
             // Habilita icone "Mov 45 Anti-Horario" para outra PicBoxes
             Move45AH();
 
@@ -299,10 +302,6 @@ namespace ProtProg
                 {
                     TB_lit.Text += "Giro 45 graus para ESQUERDA\n";
                 }
-                if (LCmd[i] == '.')
-                {
-                    TB_lit.Text += "Descanço...\n";
-                }
             }
             TB_lit.Text += "... e Fim!";
         }
@@ -319,6 +318,10 @@ namespace ProtProg
                 temp += "H";
             }
             else if (cmd1.Image == moveAH.Image)
+            {
+                temp += "A";
+            }
+            else if (cmd1.Image == LoopPb.Image)
             {
                 temp += "A";
             }
@@ -375,7 +378,7 @@ namespace ProtProg
                 temp += "A";
             }
             ////////////
-            return (temp += ".");
+            return (temp);
         }
 
         private String PegaSeqLoop()
@@ -446,8 +449,15 @@ namespace ProtProg
                 temp += "A";
             }
             ////////////
+            // Trecho faz as repetições solicitadas pelo usuário pelo numericUpDown. Se limiteloop
+            // for igual 1, então o loop funcionará como um conteiner do bloco de repetição
+            // que o usuário montou.
+            // Ex: Para limiteloop = 1 e Bloco de Repetição = "FFHA", então loop = "FFHA".
+            //  Para limiteloop = 2 e Bloco de Repetição = "FFHA", então loop = "FFHAFFHA".
             int limiteloop = Decimal.ToInt16(numericUpDown1.Value);
-            return (temp += ".");
+            for (int k = 0; k < limiteloop; k++) temp += temp;
+            ////////////
+            return (temp);
         }
 
         private void BtBloco_Click(object sender, EventArgs e)
@@ -479,5 +489,55 @@ namespace ProtProg
         {
             TB_lit.Text = "";
         }
+
+        private void BtGerar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ConnectAsServer()
+        {
+            Thread blutoothServerThread = new Thread(new ThreadStart(ServerConnectThread));
+            blutoothServerThread.Start();
+        }
+
+        Guid mUUID = new Guid("00001101-0000-1000-8000-00805F9B34FB");
+
+        public void ServerConnectThread()
+        {
+            updateUI("Server iniciado, aguardando cliente.");
+            BluetoothListener blueListener = new BluetoothListener(mUUID);
+            blueListener.Start();
+            BluetoothClient conn = blueListener.AcceptBluetoothClient();
+            updateUI("Cliente conectado");
+
+            Stream mStream = conn.GetStream();
+            while (true)
+            {
+                try
+                {
+                    // mantem conectado.
+                    byte[] received = new byte[1024];
+                    mStream.Read(received, 0, received.Length);
+                    updateUI("Recebido: " + Encoding.ASCII.GetString(received));
+                    byte[] sent = Encoding.ASCII.GetBytes("Hello");
+                    mStream.Write(sent, 0, sent.Length);
+                }catch(IOException exception)
+                {
+                    updateUI("Cliente desconectado...");
+                }
+
+            }
+        }
+
+        private void updateUI(string message)
+        {
+            Func<int> del = delegate ()
+            {
+                return 0;
+            };
+            Invoke(del);
+        }
+
     }
 }
