@@ -1,6 +1,6 @@
 ﻿namespace ProtProg
 {
-    partial class Form1
+    partial class Principal
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             this.TB_lit = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Bt_Literal = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -46,10 +46,10 @@
             this.moveH = new System.Windows.Forms.PictureBox();
             this.moveAH = new System.Windows.Forms.PictureBox();
             this.LoopPb = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Bt_Limpar = new System.Windows.Forms.Button();
+            this.Bt_Enviar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.BtGerar = new System.Windows.Forms.Button();
+            this.Bt_Gerar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,6 +60,7 @@
             this.LoopPcBox3 = new System.Windows.Forms.PictureBox();
             this.LoopPcBox4 = new System.Windows.Forms.PictureBox();
             this.LoopPcBox1 = new System.Windows.Forms.PictureBox();
+            this.Bt_Conexao = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmd5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmd4)).BeginInit();
@@ -173,15 +174,15 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Fim";
             // 
-            // button1
+            // Bt_Literal
             // 
-            this.button1.Location = new System.Drawing.Point(381, 239);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 41);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Literal";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.Bt_Literal.Location = new System.Drawing.Point(381, 239);
+            this.Bt_Literal.Name = "Bt_Literal";
+            this.Bt_Literal.Size = new System.Drawing.Size(91, 41);
+            this.Bt_Literal.TabIndex = 8;
+            this.Bt_Literal.Text = "Literal";
+            this.Bt_Literal.UseVisualStyleBackColor = true;
+            this.Bt_Literal.Click += new System.EventHandler(this.Bt_Literal_Click);
             // 
             // panel2
             // 
@@ -239,9 +240,9 @@
             this.moveF.TabIndex = 0;
             this.moveF.TabStop = false;
             this.moveF.Tag = "Up";
-            this.moveF.DragDrop += new System.Windows.Forms.DragEventHandler(this.moveF_DragDrop);
-            this.moveF.DragEnter += new System.Windows.Forms.DragEventHandler(this.moveF_DragEnter);
-            this.moveF.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveF_MouseDown);
+            this.moveF.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveF_DragDrop);
+            this.moveF.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveF_DragEnter);
+            this.moveF.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveF_MouseDown);
             // 
             // moveH
             // 
@@ -254,9 +255,9 @@
             this.moveH.TabIndex = 3;
             this.moveH.TabStop = false;
             this.moveH.Tag = "mH";
-            this.moveH.DragDrop += new System.Windows.Forms.DragEventHandler(this.moveH_DragDrop);
-            this.moveH.DragEnter += new System.Windows.Forms.DragEventHandler(this.moveH_DragEnter);
-            this.moveH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveH_MouseDown);
+            this.moveH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveH_DragDrop);
+            this.moveH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveH_DragEnter);
+            this.moveH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveH_MouseDown);
             // 
             // moveAH
             // 
@@ -269,9 +270,9 @@
             this.moveAH.TabIndex = 4;
             this.moveAH.TabStop = false;
             this.moveAH.Tag = "mAH";
-            this.moveAH.DragDrop += new System.Windows.Forms.DragEventHandler(this.moveAH_DragDrop);
-            this.moveAH.DragEnter += new System.Windows.Forms.DragEventHandler(this.moveAH_DragEnter);
-            this.moveAH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveAH_MouseDown);
+            this.moveAH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveAH_DragDrop);
+            this.moveAH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveAH_DragEnter);
+            this.moveAH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveAH_MouseDown);
             // 
             // LoopPb
             // 
@@ -285,29 +286,30 @@
             this.LoopPb.TabStop = false;
             this.LoopPb.Tag = "mL";
             // 
-            // button2
+            // Bt_Limpar
             // 
-            this.button2.Location = new System.Drawing.Point(478, 239);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 41);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Limpar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.Bt_Limpar.Location = new System.Drawing.Point(478, 239);
+            this.Bt_Limpar.Name = "Bt_Limpar";
+            this.Bt_Limpar.Size = new System.Drawing.Size(91, 41);
+            this.Bt_Limpar.TabIndex = 11;
+            this.Bt_Limpar.Text = "Limpar";
+            this.Bt_Limpar.UseVisualStyleBackColor = true;
+            this.Bt_Limpar.Click += new System.EventHandler(this.Bt_Limpar_Click);
             // 
-            // button3
+            // Bt_Enviar
             // 
-            this.button3.Location = new System.Drawing.Point(381, 327);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(188, 41);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Enviar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Bt_Enviar.Location = new System.Drawing.Point(381, 327);
+            this.Bt_Enviar.Name = "Bt_Enviar";
+            this.Bt_Enviar.Size = new System.Drawing.Size(188, 41);
+            this.Bt_Enviar.TabIndex = 12;
+            this.Bt_Enviar.Text = "Enviar";
+            this.Bt_Enviar.UseVisualStyleBackColor = true;
+            this.Bt_Enviar.Click += new System.EventHandler(this.Bt_Enviar_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Highlight;
-            this.panel4.Controls.Add(this.BtGerar);
+            this.panel4.Controls.Add(this.Bt_Gerar);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label5);
@@ -318,15 +320,15 @@
             this.panel4.Size = new System.Drawing.Size(557, 129);
             this.panel4.TabIndex = 14;
             // 
-            // BtGerar
+            // Bt_Gerar
             // 
-            this.BtGerar.Location = new System.Drawing.Point(395, 38);
-            this.BtGerar.Name = "BtGerar";
-            this.BtGerar.Size = new System.Drawing.Size(139, 62);
-            this.BtGerar.TabIndex = 15;
-            this.BtGerar.Text = "Gerar";
-            this.BtGerar.UseVisualStyleBackColor = true;
-            this.BtGerar.Click += new System.EventHandler(this.BtGerar_Click);
+            this.Bt_Gerar.Location = new System.Drawing.Point(395, 38);
+            this.Bt_Gerar.Name = "Bt_Gerar";
+            this.Bt_Gerar.Size = new System.Drawing.Size(139, 62);
+            this.Bt_Gerar.TabIndex = 15;
+            this.Bt_Gerar.Text = "Gerar";
+            this.Bt_Gerar.UseVisualStyleBackColor = true;
+            this.Bt_Gerar.Click += new System.EventHandler(this.Bt_Gerar_Click);
             // 
             // label7
             // 
@@ -443,22 +445,34 @@
             this.LoopPcBox1.TabIndex = 1;
             this.LoopPcBox1.TabStop = false;
             // 
-            // Form1
+            // Bt_Conexao
+            // 
+            this.Bt_Conexao.Location = new System.Drawing.Point(381, 283);
+            this.Bt_Conexao.Name = "Bt_Conexao";
+            this.Bt_Conexao.Size = new System.Drawing.Size(188, 41);
+            this.Bt_Conexao.TabIndex = 15;
+            this.Bt_Conexao.Text = "Conexão";
+            this.Bt_Conexao.UseVisualStyleBackColor = true;
+            this.Bt_Conexao.Click += new System.EventHandler(this.Bt_Conexao_Click);
+            // 
+            // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(586, 536);
+            this.Controls.Add(this.Bt_Conexao);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Bt_Enviar);
+            this.Controls.Add(this.Bt_Limpar);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Bt_Literal);
             this.Controls.Add(this.TB_lit);
-            this.Name = "Form1";
+            this.Name = "Principal";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
+            this.Load += new System.EventHandler(this.Principal_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmd5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmd4)).EndInit();
@@ -497,16 +511,15 @@
         private System.Windows.Forms.PictureBox cmd2;
         private System.Windows.Forms.PictureBox moveH;
         private System.Windows.Forms.PictureBox moveAH;
-        private System.Windows.Forms.RichTextBox TB_lit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Bt_Literal;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Bt_Limpar;
+        private System.Windows.Forms.Button Bt_Enviar;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox LoopPcBox2;
@@ -516,10 +529,12 @@
         private System.Windows.Forms.PictureBox LoopPcBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.PictureBox LoopPb;
-        private System.Windows.Forms.Button BtGerar;
+        private System.Windows.Forms.Button Bt_Gerar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.RichTextBox TB_lit;
+        public System.Windows.Forms.Button Bt_Conexao;
     }
 }
 
