@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmd5 = new System.Windows.Forms.PictureBox();
             this.cmd4 = new System.Windows.Forms.PictureBox();
@@ -240,9 +241,9 @@
             this.moveF.TabIndex = 0;
             this.moveF.TabStop = false;
             this.moveF.Tag = "Up";
-            this.moveF.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveF_DragDrop);
-            this.moveF.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveF_DragEnter);
-            this.moveF.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveF_MouseDown);
+            this.moveF.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
+            this.moveF.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
+            this.moveF.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
             // 
             // moveH
             // 
@@ -255,9 +256,9 @@
             this.moveH.TabIndex = 3;
             this.moveH.TabStop = false;
             this.moveH.Tag = "mH";
-            this.moveH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveH_DragDrop);
-            this.moveH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveH_DragEnter);
-            this.moveH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveH_MouseDown);
+            this.moveH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
+            this.moveH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
+            this.moveH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
             // 
             // moveAH
             // 
@@ -270,14 +271,14 @@
             this.moveAH.TabIndex = 4;
             this.moveAH.TabStop = false;
             this.moveAH.Tag = "mAH";
-            this.moveAH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveAH_DragDrop);
-            this.moveAH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveAH_DragEnter);
-            this.moveAH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveAH_MouseDown);
+            this.moveAH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
+            this.moveAH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
+            this.moveAH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
             // 
             // LoopPb
             // 
             this.LoopPb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LoopPb.Image = global::ProtProg.Properties.Resources._123123123123312312313132312;
+            this.LoopPb.Image = ((System.Drawing.Image)(resources.GetObject("LoopPb.Image")));
             this.LoopPb.Location = new System.Drawing.Point(61, 206);
             this.LoopPb.Name = "LoopPb";
             this.LoopPb.Size = new System.Drawing.Size(53, 56);
@@ -285,6 +286,9 @@
             this.LoopPb.TabIndex = 7;
             this.LoopPb.TabStop = false;
             this.LoopPb.Tag = "mL";
+            this.LoopPb.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveLoop_DragDrop);
+            this.LoopPb.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveLoop_DragEnter);
+            this.LoopPb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveLoop_MouseDown);
             // 
             // Bt_Limpar
             // 

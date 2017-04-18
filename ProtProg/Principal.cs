@@ -17,146 +17,25 @@ namespace ProtProg
 
         CfgBluetooth btcfg = new CfgBluetooth();
         public static SerialPort ProtBT = new SerialPort();
+        String Comandos = null;
+        String Cmd_loop = null;
+
+        // Inicio Drag and Drop
 
         private void Principal_Load(object sender, EventArgs e)
         {
             HabilitaDrops();
-            // Habilita icone "Move Reto" para outra PicBoxes
-            MoveF();
-            // Habilita icone "Move 45 Horario" para outra PicBoxes
-            Move45H();
-            // Habilita icone "Mov 45 Anti-Horario" para outra PicBoxes
-            Move45AH();
+            // Habilita icone "Move Reto","Move 45 Horario" e "Mov 45 Anti-Horario" para PicBoxes
+            // de comando e loop.
+            MoveCmd();
+            // Habilita icone "Mov Loop" para PicBoxes de comando. 
+            MoveLoop();
+            /*
+            ProtBT.DtrEnable = true;
+            ProtBT.RtsEnable = true;
+            */
         }
 
-        private void MoveF()
-        {
-            cmd1.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            cmd1.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            cmd1.DragDrop += new DragEventHandler(MoveF_DragDrop);
-
-            cmd2.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            cmd2.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            cmd2.DragDrop += new DragEventHandler(MoveF_DragDrop);
-
-            cmd3.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            cmd3.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            cmd3.DragDrop += new DragEventHandler(MoveF_DragDrop);
-
-            cmd4.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            cmd4.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            cmd4.DragDrop += new DragEventHandler(MoveF_DragDrop);
-
-            cmd5.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            cmd5.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            cmd5.DragDrop += new DragEventHandler(MoveF_DragDrop);
-
-            LoopPcBox1.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            LoopPcBox1.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            LoopPcBox1.DragDrop += new DragEventHandler(MoveF_DragDrop);
-
-            LoopPcBox2.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            LoopPcBox2.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            LoopPcBox2.DragDrop += new DragEventHandler(MoveF_DragDrop);
-
-            LoopPcBox3.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            LoopPcBox3.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            LoopPcBox3.DragDrop += new DragEventHandler(MoveF_DragDrop);
-
-            LoopPcBox4.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            LoopPcBox4.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            LoopPcBox4.DragDrop += new DragEventHandler(MoveF_DragDrop);
-
-            LoopPcBox5.MouseDown += new MouseEventHandler(MoveF_MouseDown);
-            LoopPcBox5.DragEnter += new DragEventHandler(MoveF_DragEnter);
-            LoopPcBox5.DragDrop += new DragEventHandler(MoveF_DragDrop);
-        }
-
-        private void Move45H()
-        {
-            cmd1.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            cmd1.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            cmd1.DragDrop += new DragEventHandler(MoveH_DragDrop);
-
-            cmd2.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            cmd2.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            cmd2.DragDrop += new DragEventHandler(MoveH_DragDrop);
-
-            cmd3.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            cmd3.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            cmd3.DragDrop += new DragEventHandler(MoveH_DragDrop);
-
-            cmd4.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            cmd4.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            cmd4.DragDrop += new DragEventHandler(MoveH_DragDrop);
-
-            cmd5.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            cmd5.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            cmd5.DragDrop += new DragEventHandler(MoveH_DragDrop);
-
-            LoopPcBox1.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            LoopPcBox1.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            LoopPcBox1.DragDrop += new DragEventHandler(MoveH_DragDrop);
-
-            LoopPcBox2.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            LoopPcBox2.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            LoopPcBox2.DragDrop += new DragEventHandler(MoveH_DragDrop);
-
-            LoopPcBox3.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            LoopPcBox3.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            LoopPcBox3.DragDrop += new DragEventHandler(MoveH_DragDrop);
-
-            LoopPcBox4.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            LoopPcBox4.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            LoopPcBox4.DragDrop += new DragEventHandler(MoveH_DragDrop);
-
-            LoopPcBox5.MouseDown += new MouseEventHandler(MoveH_MouseDown);
-            LoopPcBox5.DragEnter += new DragEventHandler(MoveH_DragEnter);
-            LoopPcBox5.DragDrop += new DragEventHandler(MoveH_DragDrop);
-        }
-
-        private void Move45AH()
-        {
-            cmd1.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            cmd1.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            cmd1.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-
-            cmd2.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            cmd2.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            cmd2.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-
-            cmd3.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            cmd3.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            cmd3.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-
-            cmd4.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            cmd4.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            cmd4.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-
-            cmd5.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            cmd5.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            cmd5.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-
-            LoopPcBox1.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            LoopPcBox1.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            LoopPcBox1.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-
-            LoopPcBox2.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            LoopPcBox2.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            LoopPcBox2.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-
-            LoopPcBox3.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            LoopPcBox3.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            LoopPcBox3.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-
-            LoopPcBox4.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            LoopPcBox4.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            LoopPcBox4.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-
-            LoopPcBox5.MouseDown += new MouseEventHandler(MoveAH_MouseDown);
-            LoopPcBox5.DragEnter += new DragEventHandler(MoveAH_DragEnter);
-            LoopPcBox5.DragDrop += new DragEventHandler(MoveAH_DragDrop);
-        }
 
         private void HabilitaDrops()
         {
@@ -171,9 +50,73 @@ namespace ProtProg
             LoopPcBox4.AllowDrop = true;
             LoopPcBox5.AllowDrop = true;
         }
+        
+        // Permite que Figuras sejam movidas para blocos do Comando Principal e Loop
+        private void MoveCmd()
+        {
+            cmd1.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            cmd1.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            cmd1.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
 
-        // Movimento Reto
-        private void MoveF_MouseDown(object sender, MouseEventArgs e)
+            cmd2.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            cmd2.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            cmd2.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
+
+            cmd3.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            cmd3.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            cmd3.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
+
+            cmd4.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            cmd4.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            cmd4.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
+
+            cmd5.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            cmd5.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            cmd5.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
+
+            LoopPcBox1.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            LoopPcBox1.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            LoopPcBox1.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
+
+            LoopPcBox2.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            LoopPcBox2.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            LoopPcBox2.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
+
+            LoopPcBox3.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            LoopPcBox3.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            LoopPcBox3.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
+
+            LoopPcBox4.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            LoopPcBox4.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            LoopPcBox4.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
+
+            LoopPcBox5.MouseDown += new MouseEventHandler(MoveCmd_MouseDown);
+            LoopPcBox5.DragEnter += new DragEventHandler(MoveCmd_DragEnter);
+            LoopPcBox5.DragDrop += new DragEventHandler(MoveCmd_DragDrop);
+        }
+
+        // Permite que Figura seja movida para APENAS para blocos do Comando Principal
+        private void MoveLoop()
+        {
+            cmd1.MouseDown += new MouseEventHandler(MoveLoop_MouseDown);
+            cmd1.DragEnter += new DragEventHandler(MoveLoop_DragEnter);
+            cmd1.DragDrop += new DragEventHandler(MoveLoop_DragDrop);
+
+            cmd2.MouseDown += new MouseEventHandler(MoveLoop_MouseDown);
+            cmd2.DragEnter += new DragEventHandler(MoveLoop_DragEnter);
+            cmd2.DragDrop += new DragEventHandler(MoveLoop_DragDrop);
+
+            cmd3.MouseDown += new MouseEventHandler(MoveLoop_MouseDown);
+            cmd3.DragEnter += new DragEventHandler(MoveLoop_DragEnter);
+            cmd3.DragDrop += new DragEventHandler(MoveLoop_DragDrop);
+
+            cmd4.MouseDown += new MouseEventHandler(MoveLoop_MouseDown);
+            cmd4.DragEnter += new DragEventHandler(MoveLoop_DragEnter);
+            cmd4.DragDrop += new DragEventHandler(MoveLoop_DragDrop);
+        }
+
+        // Drag and Drop dos movimentos de giro e ir pra frente.
+        private void MoveCmd_MouseDown(object sender, MouseEventArgs e)
         {
             try
             {
@@ -186,7 +129,7 @@ namespace ProtProg
             }
         }
 
-        private void MoveF_DragEnter(object sender, DragEventArgs e)
+        private void MoveCmd_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Bitmap))
             {
@@ -198,51 +141,15 @@ namespace ProtProg
             }
         }
 
-        private void MoveF_DragDrop(object sender, DragEventArgs e)
+        private void MoveCmd_DragDrop(object sender, DragEventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
             pb.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
         }
 
+        // Drag and Drop da figura de movimento de Loop
 
-        // Movimento giro 45 Horario
-
-        private void MoveH_MouseDown(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                PictureBox pb = (PictureBox)sender;
-                pb.Select();
-                pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
-                pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
-                pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
-            }
-            catch
-            {
-            }
-        }
-
-        private void MoveH_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(DataFormats.Bitmap))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
-        }
-
-        private void MoveH_DragDrop(object sender, DragEventArgs e)
-        {
-            PictureBox pb = (PictureBox)sender;
-            pb.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
-        }
-
-        // Movimento giro 45 Anti-Horario
-
-        private void MoveAH_MouseDown(object sender, MouseEventArgs e)
+        private void MoveLoop_MouseDown(object sender, MouseEventArgs e)
         {
             try
             {
@@ -255,7 +162,7 @@ namespace ProtProg
             }
         }
 
-        private void MoveAH_DragEnter(object sender, DragEventArgs e)
+        private void MoveLoop_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Bitmap))
             {
@@ -267,12 +174,13 @@ namespace ProtProg
             }
         }
 
-        private void MoveAH_DragDrop(object sender, DragEventArgs e)
+        private void MoveLoop_DragDrop(object sender, DragEventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
             pb.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
         }
 
+        // Fim Drag and Drop
 
         private void Bt_Literal_Click(object sender, EventArgs e)
         {
@@ -292,6 +200,10 @@ namespace ProtProg
                 if (LCmd[i] == 'A')
                 {
                     TB_lit.Text += "Giro 45 graus para ESQUERDA\n";
+                }
+                if (LCmd[i] == 'O')
+                {
+                    TB_lit.Text += "Executo o loop que vc montou\n";
                 }
             }
             TB_lit.Text += "... e Fim!";
@@ -314,7 +226,7 @@ namespace ProtProg
             }
             else if (cmd1.Image == LoopPb.Image)
             {
-                temp += "A";
+                temp += "O";
             }
             /////////////
             if (cmd2.Image == moveF.Image)
@@ -329,6 +241,10 @@ namespace ProtProg
             {
                 temp += "A";
             }
+            else if (cmd2.Image == LoopPb.Image)
+            {
+                temp += "O";
+            }
             /////////////
             if (cmd3.Image == moveF.Image)
             {
@@ -341,6 +257,10 @@ namespace ProtProg
             else if (cmd3.Image == moveAH.Image)
             {
                 temp += "A";
+            }
+            else if (cmd3.Image == LoopPb.Image)
+            {
+                temp += "O";
             }
             /////////////
             if (cmd4.Image == moveF.Image)
@@ -355,6 +275,10 @@ namespace ProtProg
             {
                 temp += "A";
             }
+            else if (cmd4.Image == LoopPb.Image)
+            {
+                temp += "O";
+            }
             ////////////
             if (cmd5.Image == moveF.Image)
             {
@@ -367,6 +291,10 @@ namespace ProtProg
             else if (cmd5.Image == moveAH.Image)
             {
                 temp += "A";
+            }
+            else if (cmd5.Image == LoopPb.Image)
+            {
+                temp += "O";
             }
             ////////////
             return (temp);
@@ -446,7 +374,7 @@ namespace ProtProg
             // Ex: Para limiteloop = 1 e Bloco de Repetição = "FFHA", então loop = "FFHA".
             //  Para limiteloop = 2 e Bloco de Repetição = "FFHA", então loop = "FFHAFFHA".
             int limiteloop = Decimal.ToInt16(numericUpDown1.Value);
-            for (int k = 0; k < limiteloop; k++) temp += temp;
+            for (int k = 0; k < (limiteloop-1); k++) temp += temp;
             ////////////
             return (temp);
         }
@@ -469,6 +397,8 @@ namespace ProtProg
             LoopPcBox3.Image = null;
             LoopPcBox4.Image = null;
             LoopPcBox5.Image = null;
+            Comandos = null;
+            Cmd_loop = null;
         }
 
         private void LimparTxt()
@@ -478,7 +408,7 @@ namespace ProtProg
 
         private void Bt_Gerar_Click(object sender, EventArgs e)
         {
-
+            Cmd_loop = PegaSeqLoop();
         }
 
         private void Bt_Conexao_Click(object sender, EventArgs e)
@@ -488,9 +418,26 @@ namespace ProtProg
 
         private void Bt_Enviar_Click(object sender, EventArgs e)
         {
-
+            if (ProtBT.IsOpen)
+            {
+                try
+                {
+                    Comandos = PegaSeq();
+                    Comandos = Comandos.Replace("O", Cmd_loop);
+                    ProtBT.WriteLine(Comandos);
+                }
+                catch(Exception e3)
+                {
+                    TB_lit.Text += TB_lit + "Comando não enviado.";
+                    Console.WriteLine(e3);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Protótipo ainda não conectado.");
+            }
         }
-
+       
         private void Principal_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (ProtBT.IsOpen) ProtBT.Close();

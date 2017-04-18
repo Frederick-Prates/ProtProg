@@ -143,16 +143,10 @@
     <None Include="Resources\gir_horario.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Reto.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\reto2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ultimate-31-256.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\50518-200.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

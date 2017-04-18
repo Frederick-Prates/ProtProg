@@ -21,6 +21,7 @@ namespace ProtProg
             Cb_BaudRate.SelectedItem = "9600";
             Cb_COM.Items.Add("Nenhuma");
             Cb_COM.SelectedItem = "Nenhuma";
+            Bt_Conectar.Enabled = false;
         }
 
         private void Bt_Conectar_Click(object sender, EventArgs e)
@@ -62,6 +63,8 @@ namespace ProtProg
             this.Close();
         }
 
+        // A dialog da 32Feet permite enchergar e selecionar dispositivos bluetooth que já estiveram conectados
+        // e também aqueles que estão dentro do alcance.
         void Dialog32feet()
         {
             SelectBluetoothDeviceDialog dialog = new SelectBluetoothDeviceDialog();
@@ -88,25 +91,17 @@ namespace ProtProg
 
         private void AtualizaStatus(BluetoothDeviceInfo selected, bool pair)
         {
-            if (selected.Connected)
-            {
-                Lb_ConecRes.Text = "Sim";
-                Lb_ConecRes.ForeColor = System.Drawing.Color.Green;
-            }
-            else
-            {
-                Lb_ConecRes.Text = "Não";
-                Lb_ConecRes.ForeColor = System.Drawing.Color.Red;
-            }
             if (pair)
             {
                 Lb_ParRes.Text = "Sim";
                 Lb_ParRes.ForeColor = System.Drawing.Color.Green;
+                Bt_Conectar.Enabled = true;
             }
             else
             {
                 Lb_ParRes.Text = "Não";
                 Lb_ParRes.ForeColor = System.Drawing.Color.Red;
+                Bt_Conectar.Enabled = false;
             }
             Lb_DispRes.Text = selected.DeviceName;
             Lb_EndeRes.Text = Convert.ToString(selected.DeviceAddress);
@@ -138,6 +133,7 @@ namespace ProtProg
         {
             Cb_COM.Items.Clear();
             Cb_COM.Items.AddRange(SerialPort.GetPortNames());
+            Cb_COM.SelectedItem = Cb_COM.Items[0];
         }
     }
 }
