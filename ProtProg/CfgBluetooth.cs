@@ -12,9 +12,10 @@ namespace ProtProg
         public CfgBluetooth()
         {
             InitializeComponent();
-            Estado_inicial();
+            Estado_inicial(); 
         }
 
+        // Configura Combo Boxes para um estado inicial e desabilita o botão "Conectar"
         void Estado_inicial()
         {
             Cb_BaudRate.Items.AddRange(new string[] { "4800", "9600", "14400", "19200", "38400" });
@@ -24,34 +25,39 @@ namespace ProtProg
             Bt_Conectar.Enabled = false;
         }
 
+        // Botão para conectar a serial 
         private void Bt_Conectar_Click(object sender, EventArgs e)
         {
+            // Se conexão já estiver aberta...
             if (Principal.ProtBT.IsOpen)
             {
                 try
                 {
-                    Principal.ProtBT.Close();
-                    Bt_Conectar.Text = "Conectar";
-                    this.Hide();
-                    MessageBox.Show("Desconectou com sucesso");
+                    Principal.ProtBT.Close(); // Encerrra conexão
+                    Bt_Conectar.Text = "Conectar"; // Muda texto do botão novamente para Conetar
+                    this.Hide(); //Esconde janela
+                    MessageBox.Show("Desconectou com sucesso"); // Exibe msg de sucesso na desconexão.
                 }
+                //Se algo der errado...
                 catch (Exception e1)
                 {
                     MessageBox.Show("Não foi possível desconectar." + e1);
                 }
             }
+            // Se conexão não estiver aberta...
             else
             {
                 try
                 {
-                    Principal.ProtBT.BaudRate = Convert.ToInt32(Cb_BaudRate.SelectedItem);
-                    Principal.ProtBT.PortName = Convert.ToString(Cb_COM.SelectedItem);
-                    Principal.ProtBT.Open();
-                    MessageBox.Show("Conectou com sucesso");
-                    Bt_Conectar.Text = "Desconectar";
-                    this.Hide();
+                    Principal.ProtBT.BaudRate = Convert.ToInt32(Cb_BaudRate.SelectedItem); // Copia BaudRate
+                    Principal.ProtBT.PortName = Convert.ToString(Cb_COM.SelectedItem);  // Copia COM
+                    Principal.ProtBT.Open(); // Abre conexão serial
+                    MessageBox.Show("Conectou com sucesso"); // Exibe msg de sucesso na conexão.
+                    Bt_Conectar.Text = "Desconectar"; // Altera texto do botão para Desconectar.
+                    this.Hide(); //Esconde janela
                 }
-                catch(Exception e2)
+                //Se algo der errado...
+                catch (Exception e2)
                 {
                     MessageBox.Show("Algo deu errado... Verifique se a porta e o BR estao corretos." + e2);
                 }
@@ -60,7 +66,7 @@ namespace ProtProg
 
         private void Bt_Cancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); // Fecha janela
         }
 
         // A dialog da 32Feet permite enchergar e selecionar dispositivos bluetooth que já estiveram conectados
@@ -89,8 +95,10 @@ namespace ProtProg
             }
         }
 
+        // Atualiza labels com o status da conexão bluetooth
         private void AtualizaStatus(BluetoothDeviceInfo selected, bool pair)
         {
+            //Verifica se está pareado
             if (pair)
             {
                 Lb_ParRes.Text = "Sim";
@@ -103,32 +111,37 @@ namespace ProtProg
                 Lb_ParRes.ForeColor = System.Drawing.Color.Red;
                 Bt_Conectar.Enabled = false;
             }
-            Lb_DispRes.Text = selected.DeviceName;
-            Lb_EndeRes.Text = Convert.ToString(selected.DeviceAddress);
+            Lb_DispRes.Text = selected.DeviceName; //Nome do Dispositivo
+            Lb_EndeRes.Text = Convert.ToString(selected.DeviceAddress); // Endereço do dispositivo (MAC Adress)
         }
 
+        // Incia pareamento com o Protótipo
         bool Pareamento(BluetoothDeviceInfo selected)
         {
+            //Realiza autenticação com o PIN
             bool pareado = BluetoothSecurity.PairRequest(selected.DeviceAddress, "1234");
             // O segundo argumento do PairRequest é o PIN.
             if (pareado)
             {
+                // Feedback para o usuário informando que o dispositivo foi pareado.
                 MessageBox.Show(selected.DeviceName + ": Dispositivo pareado!");
                 return (true);
             }
-
             else
             {
-                MessageBox.Show(selected.DeviceName + ": Algum problema ocorreu.");
+                // Feedback para o usuário informando que algum problema aconteceu e não foi pareado.
+                MessageBox.Show(selected.DeviceName + ": Algum problema ocorreu. Dispositivo não pareado.");
                 return (false);
             }
         }
 
+        // Abre dialog da 32feet para o usuário selecionar o dispositivo bluetooth
         private void Bt_Dialog_Click(object sender, EventArgs e)
         {
             Dialog32feet();
         }
 
+        // Atualiza lista de Portas COM disponíveis 
         private void Bt_Atualizar_Click(object sender, EventArgs e)
         {
             Cb_COM.Items.Clear();
