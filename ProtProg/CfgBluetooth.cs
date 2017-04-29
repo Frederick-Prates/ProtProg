@@ -136,6 +136,7 @@ namespace ProtProg
         }
 
         // Abre dialog da 32feet para o usuário selecionar o dispositivo bluetooth
+        // É o botão Localizar da UI
         private void Bt_Dialog_Click(object sender, EventArgs e)
         {
             Dialog32feet();

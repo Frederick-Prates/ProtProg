@@ -62,6 +62,7 @@
             this.LoopPcBox4 = new System.Windows.Forms.PictureBox();
             this.LoopPcBox1 = new System.Windows.Forms.PictureBox();
             this.Bt_Conexao = new System.Windows.Forms.Button();
+            this.Bg_Worker = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmd5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmd4)).BeginInit();
@@ -459,12 +460,19 @@
             this.Bt_Conexao.UseVisualStyleBackColor = true;
             this.Bt_Conexao.Click += new System.EventHandler(this.Bt_Conexao_Click);
             // 
+            // Bg_Worker
+            // 
+            this.Bg_Worker.WorkerReportsProgress = true;
+            this.Bg_Worker.WorkerSupportsCancellation = true;
+            this.Bg_Worker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Bg_Worker_DoWork);
+            this.Bg_Worker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.Bg_Worker_ProgressChanged);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(586, 536);
+            this.ClientSize = new System.Drawing.Size(584, 536);
             this.Controls.Add(this.Bt_Conexao);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.Bt_Enviar);
@@ -539,6 +547,7 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.RichTextBox TB_lit;
         public System.Windows.Forms.Button Bt_Conexao;
+        private System.ComponentModel.BackgroundWorker Bg_Worker;
     }
 }
 

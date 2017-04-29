@@ -207,11 +207,11 @@ namespace ProtProg
                 }
                 if (LCmd[i] == 'H')
                 {
-                    TB_lit.Text += "Giro 45 graus para DIREITA\n";
+                    TB_lit.Text += "Giro 90 graus para DIREITA\n";
                 }
                 if (LCmd[i] == 'A')
                 {
-                    TB_lit.Text += "Giro 45 graus para ESQUERDA\n";
+                    TB_lit.Text += "Giro 90 graus para ESQUERDA\n";
                 }
                 if (LCmd[i] == 'O')
                 {
@@ -431,16 +431,26 @@ namespace ProtProg
         }
 
         // Botão para "gerar"(salvar) comando do bloco de loop. Assim a Loop box passa a representar
-        // o comando "gerado"(salvo)
+        // o comando "gerado"(salvo).
         private void Bt_Gerar_Click(object sender, EventArgs e)
         {
-            Cmd_loop = PegaSeqLoop();
+            Cmd_loop = PegaSeqLoop(); // Armazena em Cmd_loop o comando montado no bloco de loop
         }
 
         // Botão que abre dialog para configurar o pareamento de bluetooth e serial
         private void Bt_Conexao_Click(object sender, EventArgs e)
         {
-            btcfg.ShowDialog();
+            btcfg.ShowDialog(); // Mostra janela de configuração da conexão.
+        }
+
+        // Monta o comando para ser enviado pela serial
+        private string ComandoMontado()
+        {
+            Comandos = PegaSeq(); // Pega os comandos do bloco de comando
+            Comandos = Comandos.Replace("O", Cmd_loop); // Substitui O pelo comando "gerado"(salvo) do bloco de loop
+            //Ex.: Cmd = FFOF CmdLoop = HHA, logo Cmd ficará FFHHAF
+            Comandos = (Comandos + "$"); // Adiciona caractere de fim de comando.
+            return (Comandos);
         }
 
         // Botão que envia comando para o Protótipo
@@ -451,10 +461,10 @@ namespace ProtProg
             {
                 try
                 {
-                    Comandos = PegaSeq(); // Pega os comandos do bloco de comando
-                    Comandos = Comandos.Replace("O", Cmd_loop); // Substitui O pelo comando "gerado"(salvo) do bloco de loop
-                    //Ex.: Cmd = FFOF CmdLoop = HHA, logo Cmd ficará FFHHAF
-                    ProtBT.WriteLine(Comandos); //Envia comando para Prototipo
+                    // Se o Background worker não foi disparado, então dispara.
+                    if (!Bg_Worker.IsBusy)  Bg_Worker.RunWorkerAsync();
+                    ProtBT.WriteLine(ComandoMontado()); //Envia comando para Prototipo
+                    Bt_Enviar.Enabled = false; // Desabilita botão e só volta a habilitar quando confirmar fim da execução
                 }
                 // Caso haja alguma falha...
                 catch(Exception e3)
@@ -469,11 +479,47 @@ namespace ProtProg
                 MessageBox.Show("Protótipo ainda não conectado.");
             }
         }
-       
+
+        // Background worker necessário para não congelar tela enquanto lê serial.
+        private void Bg_Worker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            // Executa rotina de leitura da serial continuamente e para quando background worker for cancelado.
+            while (!Bg_Worker.CancellationPending)
+            {
+                try
+                {
+                    //se estiver ele lê o que está vindo dela e guarda em X.
+                    string x = ProtBT.ReadLine();
+                    //Se o conteúdo lido for igual a "$$", então ele reporta evento "ProgressChanged" para atualizar a textbox.
+                    if (x == "$$")
+                    {
+                        Console.WriteLine("Comparou e achou.");
+                        Bg_Worker.ReportProgress(100, x); // Reporta evento "ProgressChanged" com progresso 100% e a string com "$$".
+                    }
+                }
+                catch (Exception e6)
+                {
+                    Console.Write(e6);
+                }
+            }
+        }
+
+        // Faz o report da tarefa do background worker.
+        private void Bg_Worker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            Bg_Worker.CancelAsync(); // Encerra o background worker
+            Console.WriteLine("Cancelou worker");
+            Console.WriteLine(Convert.ToString(e.UserState)); //Escreve no console "$$".
+            TB_lit.AppendText("\nComando concluído!"); //Escreve na RichTextBox "Comando concluído!"
+            Bt_Enviar.Enabled = true; // Reabilita o botão Enviar.
+            Console.WriteLine("Tudo OK");
+        }
+
         // Captura o evento de fechamento da janela e encerra comunicação serial se ela estiver aberta
         private void Principal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (ProtBT.IsOpen) ProtBT.Close();
+            if (ProtBT.IsOpen) ProtBT.Close(); // Encerra conexão serial.
+            if (Bg_Worker.IsBusy) Bg_Worker.CancelAsync(); //Se estiver em execução, cancela.
         }
     }
 }
