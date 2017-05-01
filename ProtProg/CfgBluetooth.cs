@@ -4,6 +4,7 @@ using System.IO.Ports;
 using InTheHand.Net.Sockets;
 using InTheHand.Windows.Forms;
 using InTheHand.Net.Bluetooth;
+using System.Management;
 
 namespace ProtProg
 {
@@ -12,7 +13,7 @@ namespace ProtProg
         public CfgBluetooth()
         {
             InitializeComponent();
-            Estado_inicial(); 
+            Estado_inicial();
         }
 
         // Configura Combo Boxes para um estado inicial e desabilita o botão "Conectar"
@@ -23,6 +24,35 @@ namespace ProtProg
             Cb_COM.Items.Add("Nenhuma");
             Cb_COM.SelectedItem = "Nenhuma";
             Bt_Conectar.Enabled = false;
+        }
+        
+        // Verifica o status do Bluetooth
+        private void DisplayBluetoothRadio()
+        {
+            BluetoothRadio myRadio = BluetoothRadio.PrimaryRadio;
+            // Se igual a null então dispositivo está desligado.
+            if (myRadio == null)
+            {
+                Lb_StatusBT1.Text = "Desativado"; // Mostra status como desativado
+                Lb_StatusBT1.ForeColor = System.Drawing.Color.Red; // Mostra desativado na cor vermelha
+                Lb_EndBT1.Text = ""; // Limpa endereço
+                Lb_NomeBT1.Text = ""; // Limpa Nome 
+                Lb_ModoBT1.Text = ""; // Limpa Modo
+                Lb_ClasseBT1.Text = ""; // Limpa Classe
+                MessageBox.Show("Bluetooth desativado. É necessário que você o ative."); // Mostra mensagem alertando usuário.
+            }
+            // Se estiver ligado então..
+            else
+            {
+                RadioMode mode = myRadio.Mode; //Verifica modo do Bluetooth
+                // myRadio.Mode = RadioMode.Discoverable; // Configura modo para Discoverable
+                Lb_StatusBT1.Text = "Ativado"; //Atualiza status como Ativado
+                Lb_StatusBT1.ForeColor = System.Drawing.Color.Green; // Muda cor de ativado para verde
+                Lb_EndBT1.Text = Convert.ToString(myRadio.LocalAddress); // Exibe mac address local
+                Lb_NomeBT1.Text = myRadio.Name; // Exibe nome do dispositivo local
+                Lb_ModoBT1.Text = mode.ToString(); // Exibe modo do Bluetooth
+                Lb_ClasseBT1.Text = myRadio.ClassOfDevice.ToString(); // Exibe classe do dispositivo local
+            }
         }
 
         // Botão para conectar a serial 
@@ -145,9 +175,22 @@ namespace ProtProg
         // Atualiza lista de Portas COM disponíveis 
         private void Bt_Atualizar_Click(object sender, EventArgs e)
         {
-            Cb_COM.Items.Clear();
-            Cb_COM.Items.AddRange(SerialPort.GetPortNames());
-            Cb_COM.SelectedItem = Cb_COM.Items[0];
+            Cb_COM.Items.Clear(); // Limpa a lista de COMs
+            Cb_COM.Items.AddRange(SerialPort.GetPortNames()); // Adiciona lista de COMs disponíveis
+            Cb_COM.Items.Add("Nenhuma"); // Adiciona item "Nenhuma"
+            Cb_COM.SelectedItem = Cb_COM.Items[1]; // Seleciona segundo item da lista
+        }
+        
+        // Quando clickar no Botão Atualizar Status ele verifica o status do bluetooth local
+        private void Bt_AtualizarStatusBT_Click(object sender, EventArgs e)
+        {
+            DisplayBluetoothRadio();
+        }
+
+        // Quando a janela de configuração de conexão é aberta pela primeira vez, é verificado o status do bluetooth
+        private void CfgBluetooth_Shown(object sender, EventArgs e)
+        {
+            DisplayBluetoothRadio();
         }
     }
 }

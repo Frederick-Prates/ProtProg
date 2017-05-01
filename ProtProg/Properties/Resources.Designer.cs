@@ -63,9 +63,9 @@ namespace ProtProg.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _123123123123312312313132312 {
+        internal static System.Drawing.Bitmap a1 {
             get {
-                object obj = ResourceManager.GetObject("123123123123312312313132312", resourceCulture);
+                object obj = ResourceManager.GetObject("a1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,19 @@ namespace ProtProg.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _50518_200 {
+        internal static System.Drawing.Bitmap a2 {
             get {
-                object obj = ResourceManager.GetObject("50518-200", resourceCulture);
+                object obj = ResourceManager.GetObject("a2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap a3 {
+            get {
+                object obj = ResourceManager.GetObject("a3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,26 +113,6 @@ namespace ProtProg.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_puc_minas {
-            get {
-                object obj = ResourceManager.GetObject("logo-puc-minas", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logo_puc_minas_fundo_transparente_grande {
-            get {
-                object obj = ResourceManager.GetObject("logo-puc_minas_fundo_transparente_grande", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Reto {
             get {
                 object obj = ResourceManager.GetObject("Reto", resourceCulture);
@@ -136,16 +126,6 @@ namespace ProtProg.Properties {
         internal static System.Drawing.Bitmap reto2 {
             get {
                 object obj = ResourceManager.GetObject("reto2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ultimate_31_512 {
-            get {
-                object obj = ResourceManager.GetObject("ultimate-31-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

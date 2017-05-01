@@ -435,6 +435,7 @@ namespace ProtProg
         private void Bt_Gerar_Click(object sender, EventArgs e)
         {
             Cmd_loop = PegaSeqLoop(); // Armazena em Cmd_loop o comando montado no bloco de loop
+            MessageBox.Show("Loop salvo!");
         }
 
         // Botão que abre dialog para configurar o pareamento de bluetooth e serial
@@ -465,6 +466,7 @@ namespace ProtProg
                     if (!Bg_Worker.IsBusy)  Bg_Worker.RunWorkerAsync();
                     ProtBT.WriteLine(ComandoMontado()); //Envia comando para Prototipo
                     Bt_Enviar.Enabled = false; // Desabilita botão e só volta a habilitar quando confirmar fim da execução
+                    Bt_Enviar.Text = "Ocupado"; // Altera texto do botão Enviar
                 }
                 // Caso haja alguma falha...
                 catch(Exception e3)
@@ -493,7 +495,6 @@ namespace ProtProg
                     //Se o conteúdo lido for igual a "$$", então ele reporta evento "ProgressChanged" para atualizar a textbox.
                     if (x == "$$")
                     {
-                        Console.WriteLine("Comparou e achou.");
                         Bg_Worker.ReportProgress(100, x); // Reporta evento "ProgressChanged" com progresso 100% e a string com "$$".
                     }
                 }
@@ -508,11 +509,9 @@ namespace ProtProg
         private void Bg_Worker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
             Bg_Worker.CancelAsync(); // Encerra o background worker
-            Console.WriteLine("Cancelou worker");
-            Console.WriteLine(Convert.ToString(e.UserState)); //Escreve no console "$$".
             TB_lit.AppendText("\nComando concluído!"); //Escreve na RichTextBox "Comando concluído!"
             Bt_Enviar.Enabled = true; // Reabilita o botão Enviar.
-            Console.WriteLine("Tudo OK");
+            Bt_Enviar.Text = "Enviar"; // Altera texto do botão Enviar
         }
 
         // Captura o evento de fechamento da janela e encerra comunicação serial se ela estiver aberta
