@@ -169,7 +169,7 @@ namespace ProtProg
 
                 else
                 {
-                    MessageBox.Show("Infelizmente não é possível utilizar a Loop box dentro do loop.\n(Pressione ENTER para continuar)");
+                   // MessageBox.Show("Infelizmente não é possível utilizar a Loop box dentro do loop.\n(Pressione ENTER para continuar)");
                     e.Effect = DragDropEffects.None;
                 }
             }
@@ -442,6 +442,7 @@ namespace ProtProg
         private void Bt_Conexao_Click(object sender, EventArgs e)
         {
             btcfg.ShowDialog(); // Mostra janela de configuração da conexão.
+            Bt_Enviar.Enabled = btcfg.Conectar_Principal;
         }
 
         // Monta o comando para ser enviado pela serial

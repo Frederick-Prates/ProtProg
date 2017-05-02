@@ -39,6 +39,9 @@
             this.Bt_Atualizar = new System.Windows.Forms.Button();
             this.Bt_Dialog = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Bt_AtualizarStatusBT = new System.Windows.Forms.Button();
+            this.Lb_StatusBT1 = new System.Windows.Forms.Label();
+            this.Lb_StatusBT = new System.Windows.Forms.Label();
             this.Lb_ClasseBT1 = new System.Windows.Forms.Label();
             this.Lb_EndBT1 = new System.Windows.Forms.Label();
             this.Lb_NomeBT1 = new System.Windows.Forms.Label();
@@ -55,9 +58,6 @@
             this.Lb_Disp = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.Lb_StatusBT1 = new System.Windows.Forms.Label();
-            this.Lb_StatusBT = new System.Windows.Forms.Label();
-            this.Bt_AtualizarStatusBT = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -84,9 +84,9 @@
             // 
             // Bt_Conectar
             // 
-            this.Bt_Conectar.Location = new System.Drawing.Point(217, 259);
+            this.Bt_Conectar.Location = new System.Drawing.Point(117, 60);
             this.Bt_Conectar.Name = "Bt_Conectar";
-            this.Bt_Conectar.Size = new System.Drawing.Size(200, 66);
+            this.Bt_Conectar.Size = new System.Drawing.Size(102, 57);
             this.Bt_Conectar.TabIndex = 2;
             this.Bt_Conectar.Text = "Conectar";
             this.Bt_Conectar.UseVisualStyleBackColor = true;
@@ -94,9 +94,9 @@
             // 
             // Bt_Cancelar
             // 
-            this.Bt_Cancelar.Location = new System.Drawing.Point(6, 259);
+            this.Bt_Cancelar.Location = new System.Drawing.Point(8, 251);
             this.Bt_Cancelar.Name = "Bt_Cancelar";
-            this.Bt_Cancelar.Size = new System.Drawing.Size(200, 66);
+            this.Bt_Cancelar.Size = new System.Drawing.Size(406, 45);
             this.Bt_Cancelar.TabIndex = 3;
             this.Bt_Cancelar.Text = "Cancelar";
             this.Bt_Cancelar.UseVisualStyleBackColor = true;
@@ -124,12 +124,13 @@
             // 
             this.groupBox1.Controls.Add(this.Bt_Atualizar);
             this.groupBox1.Controls.Add(this.lb_COM);
+            this.groupBox1.Controls.Add(this.Bt_Conectar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Cb_COM);
             this.groupBox1.Controls.Add(this.Cb_BaudRate);
             this.groupBox1.Location = new System.Drawing.Point(192, 120);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(225, 133);
+            this.groupBox1.Size = new System.Drawing.Size(225, 125);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Serial";
@@ -138,7 +139,7 @@
             // 
             this.Bt_Atualizar.Location = new System.Drawing.Point(8, 59);
             this.Bt_Atualizar.Name = "Bt_Atualizar";
-            this.Bt_Atualizar.Size = new System.Drawing.Size(212, 66);
+            this.Bt_Atualizar.Size = new System.Drawing.Size(103, 58);
             this.Bt_Atualizar.TabIndex = 8;
             this.Bt_Atualizar.Text = "Atualizar";
             this.Bt_Atualizar.UseVisualStyleBackColor = true;
@@ -174,6 +175,33 @@
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Bluetooth";
+            // 
+            // Bt_AtualizarStatusBT
+            // 
+            this.Bt_AtualizarStatusBT.Location = new System.Drawing.Point(198, 19);
+            this.Bt_AtualizarStatusBT.Name = "Bt_AtualizarStatusBT";
+            this.Bt_AtualizarStatusBT.Size = new System.Drawing.Size(102, 66);
+            this.Bt_AtualizarStatusBT.TabIndex = 26;
+            this.Bt_AtualizarStatusBT.Text = "Atualizar Status";
+            this.Bt_AtualizarStatusBT.UseVisualStyleBackColor = true;
+            this.Bt_AtualizarStatusBT.Click += new System.EventHandler(this.Bt_AtualizarStatusBT_Click);
+            // 
+            // Lb_StatusBT1
+            // 
+            this.Lb_StatusBT1.AutoSize = true;
+            this.Lb_StatusBT1.Location = new System.Drawing.Point(67, 23);
+            this.Lb_StatusBT1.Name = "Lb_StatusBT1";
+            this.Lb_StatusBT1.Size = new System.Drawing.Size(0, 13);
+            this.Lb_StatusBT1.TabIndex = 25;
+            // 
+            // Lb_StatusBT
+            // 
+            this.Lb_StatusBT.AutoSize = true;
+            this.Lb_StatusBT.Location = new System.Drawing.Point(11, 23);
+            this.Lb_StatusBT.Name = "Lb_StatusBT";
+            this.Lb_StatusBT.Size = new System.Drawing.Size(40, 13);
+            this.Lb_StatusBT.TabIndex = 24;
+            this.Lb_StatusBT.Text = "Status:";
             // 
             // Lb_ClasseBT1
             // 
@@ -298,12 +326,11 @@
             // 
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.groupBox2);
-            this.groupBox3.Controls.Add(this.Bt_Conectar);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.Bt_Cancelar);
             this.groupBox3.Location = new System.Drawing.Point(4, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(423, 331);
+            this.groupBox3.Size = new System.Drawing.Size(423, 302);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Configurar";
@@ -318,44 +345,17 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Location = new System.Drawing.Point(8, 120);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(178, 133);
+            this.groupBox4.Size = new System.Drawing.Size(178, 125);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Informação do Dispositivo";
-            // 
-            // Lb_StatusBT1
-            // 
-            this.Lb_StatusBT1.AutoSize = true;
-            this.Lb_StatusBT1.Location = new System.Drawing.Point(67, 23);
-            this.Lb_StatusBT1.Name = "Lb_StatusBT1";
-            this.Lb_StatusBT1.Size = new System.Drawing.Size(0, 13);
-            this.Lb_StatusBT1.TabIndex = 25;
-            // 
-            // Lb_StatusBT
-            // 
-            this.Lb_StatusBT.AutoSize = true;
-            this.Lb_StatusBT.Location = new System.Drawing.Point(11, 23);
-            this.Lb_StatusBT.Name = "Lb_StatusBT";
-            this.Lb_StatusBT.Size = new System.Drawing.Size(40, 13);
-            this.Lb_StatusBT.TabIndex = 24;
-            this.Lb_StatusBT.Text = "Status:";
-            // 
-            // Bt_AtualizarStatusBT
-            // 
-            this.Bt_AtualizarStatusBT.Location = new System.Drawing.Point(198, 19);
-            this.Bt_AtualizarStatusBT.Name = "Bt_AtualizarStatusBT";
-            this.Bt_AtualizarStatusBT.Size = new System.Drawing.Size(102, 66);
-            this.Bt_AtualizarStatusBT.TabIndex = 26;
-            this.Bt_AtualizarStatusBT.Text = "Atualizar Status";
-            this.Bt_AtualizarStatusBT.UseVisualStyleBackColor = true;
-            this.Bt_AtualizarStatusBT.Click += new System.EventHandler(this.Bt_AtualizarStatusBT_Click);
             // 
             // CfgBluetooth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(430, 338);
+            this.ClientSize = new System.Drawing.Size(430, 307);
             this.Controls.Add(this.groupBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CfgBluetooth";
@@ -373,7 +373,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button Bt_Conectar;
         private System.Windows.Forms.Button Bt_Cancelar;
         private System.Windows.Forms.Label lb_COM;
         private System.Windows.Forms.Label label1;
@@ -402,5 +401,6 @@
         private System.Windows.Forms.Label Lb_StatusBT1;
         private System.Windows.Forms.Label Lb_StatusBT;
         private System.Windows.Forms.Button Bt_AtualizarStatusBT;
+        public System.Windows.Forms.Button Bt_Conectar;
     }
 }

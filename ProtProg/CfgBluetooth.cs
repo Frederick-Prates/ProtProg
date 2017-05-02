@@ -4,7 +4,7 @@ using System.IO.Ports;
 using InTheHand.Net.Sockets;
 using InTheHand.Windows.Forms;
 using InTheHand.Net.Bluetooth;
-using System.Management;
+//using System.Management;
 
 namespace ProtProg
 {
@@ -15,6 +15,9 @@ namespace ProtProg
             InitializeComponent();
             Estado_inicial();
         }
+        private bool conectar_Principal = false;
+
+        public bool Conectar_Principal { get => conectar_Principal; set => conectar_Principal = value; }
 
         // Configura Combo Boxes para um estado inicial e desabilita o botão "Conectar"
         void Estado_inicial()
@@ -56,7 +59,7 @@ namespace ProtProg
         }
 
         // Botão para conectar a serial 
-        private void Bt_Conectar_Click(object sender, EventArgs e)
+        public void Bt_Conectar_Click(object sender, EventArgs e)
         {
             // Se conexão já estiver aberta...
             if (Principal.ProtBT.IsOpen)
@@ -67,6 +70,7 @@ namespace ProtProg
                     Bt_Conectar.Text = "Conectar"; // Muda texto do botão novamente para Conetar
                     this.Hide(); //Esconde janela
                     MessageBox.Show("Desconectou com sucesso"); // Exibe msg de sucesso na desconexão.
+                    Conectar_Principal = true; //Habilita botão de Envio.
                 }
                 //Se algo der errado...
                 catch (Exception e1)
@@ -93,7 +97,6 @@ namespace ProtProg
                 }
             }
         }
-
         private void Bt_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close(); // Fecha janela
