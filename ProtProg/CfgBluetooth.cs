@@ -4,7 +4,6 @@ using System.IO.Ports;
 using InTheHand.Net.Sockets;
 using InTheHand.Windows.Forms;
 using InTheHand.Net.Bluetooth;
-//using System.Management;
 
 namespace ProtProg
 {
@@ -15,9 +14,12 @@ namespace ProtProg
             InitializeComponent();
             Estado_inicial();
         }
-        private bool conectar_Principal = false;
 
-        public bool Conectar_Principal { get => conectar_Principal; set => conectar_Principal = value; }
+        private bool enviar_Principal; // Variavel booleana usada como intermediária para modificar o valor de Bt_Enviar.Enabled 
+        // da janela Principal.
+
+        // Instancia para enviar valor de enviar_Principal para janela Principal
+        public bool Enviar_Principal { get => enviar_Principal; set => enviar_Principal = value; }
 
         // Configura Combo Boxes para um estado inicial e desabilita o botão "Conectar"
         void Estado_inicial()
@@ -66,11 +68,11 @@ namespace ProtProg
             {
                 try
                 {
-                    Principal.ProtBT.Close(); // Encerrra conexão
-                    Bt_Conectar.Text = "Conectar"; // Muda texto do botão novamente para Conetar
+                    Principal.ProtBT.Close(); // Encerra conexão
+                    Bt_Conectar.Text = "Conectar"; // Muda texto do botão novamente para Conectar
                     this.Hide(); //Esconde janela
-                    MessageBox.Show("Desconectou com sucesso"); // Exibe msg de sucesso na desconexão.
-                    Conectar_Principal = true; //Habilita botão de Envio.
+                    MessageBox.Show("Desconectou com sucesso"); // Exibe mensagem de sucesso na desconexão.
+                    Enviar_Principal = true; //Habilita botão de Envio da janela Principal.
                 }
                 //Se algo der errado...
                 catch (Exception e1)
@@ -93,7 +95,7 @@ namespace ProtProg
                 //Se algo der errado...
                 catch (Exception e2)
                 {
-                    MessageBox.Show("Algo deu errado... Verifique se a porta e o BR estao corretos." + e2);
+                    MessageBox.Show("Algo deu errado... Verifique se a porta está correta." + e2);
                 }
             }
         }
@@ -146,6 +148,7 @@ namespace ProtProg
             }
             Lb_DispRes.Text = selected.DeviceName; //Nome do Dispositivo
             Lb_EndeRes.Text = Convert.ToString(selected.DeviceAddress); // Endereço do dispositivo (MAC Adress)
+            Lb_TipoRes.Text = selected.ClassOfDevice.MajorDevice.ToString(); // Tipo de dispositivo
         }
 
         // Incia pareamento com o Protótipo
@@ -157,13 +160,13 @@ namespace ProtProg
             if (pareado)
             {
                 // Feedback para o usuário informando que o dispositivo foi pareado.
-                MessageBox.Show(selected.DeviceName + ": Dispositivo pareado!");
+                MessageBox.Show(" Dispositivo " + selected.DeviceName + " pareado!");
                 return (true);
             }
             else
             {
                 // Feedback para o usuário informando que algum problema aconteceu e não foi pareado.
-                MessageBox.Show(selected.DeviceName + ": Algum problema ocorreu. Dispositivo não pareado.");
+                MessageBox.Show("Algum problema ocorreu. Dispositivo " + selected.DeviceName + " não pareado.");
                 return (false);
             }
         }

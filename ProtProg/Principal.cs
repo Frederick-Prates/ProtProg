@@ -442,7 +442,8 @@ namespace ProtProg
         private void Bt_Conexao_Click(object sender, EventArgs e)
         {
             btcfg.ShowDialog(); // Mostra janela de configuração da conexão.
-            Bt_Enviar.Enabled = btcfg.Conectar_Principal;
+            if(!Bt_Enviar.Enabled) Bt_Enviar.Enabled = btcfg.Enviar_Principal; // Se botão Enviar estiver desabilitado e usuário fizer
+            // a desconexão da serial pelo dialog, então volta a habilitar o enviar.
         }
 
         // Monta o comando para ser enviado pela serial

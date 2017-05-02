@@ -58,6 +58,8 @@
             this.Lb_Disp = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Lb_TipoRes = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -189,7 +191,7 @@
             // Lb_StatusBT1
             // 
             this.Lb_StatusBT1.AutoSize = true;
-            this.Lb_StatusBT1.Location = new System.Drawing.Point(67, 23);
+            this.Lb_StatusBT1.Location = new System.Drawing.Point(67, 20);
             this.Lb_StatusBT1.Name = "Lb_StatusBT1";
             this.Lb_StatusBT1.Size = new System.Drawing.Size(0, 13);
             this.Lb_StatusBT1.TabIndex = 25;
@@ -197,7 +199,7 @@
             // Lb_StatusBT
             // 
             this.Lb_StatusBT.AutoSize = true;
-            this.Lb_StatusBT.Location = new System.Drawing.Point(11, 23);
+            this.Lb_StatusBT.Location = new System.Drawing.Point(11, 20);
             this.Lb_StatusBT.Name = "Lb_StatusBT";
             this.Lb_StatusBT.Size = new System.Drawing.Size(40, 13);
             this.Lb_StatusBT.TabIndex = 24;
@@ -206,7 +208,7 @@
             // Lb_ClasseBT1
             // 
             this.Lb_ClasseBT1.AutoSize = true;
-            this.Lb_ClasseBT1.Location = new System.Drawing.Point(67, 76);
+            this.Lb_ClasseBT1.Location = new System.Drawing.Point(67, 73);
             this.Lb_ClasseBT1.Name = "Lb_ClasseBT1";
             this.Lb_ClasseBT1.Size = new System.Drawing.Size(0, 13);
             this.Lb_ClasseBT1.TabIndex = 23;
@@ -214,7 +216,7 @@
             // Lb_EndBT1
             // 
             this.Lb_EndBT1.AutoSize = true;
-            this.Lb_EndBT1.Location = new System.Drawing.Point(67, 49);
+            this.Lb_EndBT1.Location = new System.Drawing.Point(67, 46);
             this.Lb_EndBT1.Name = "Lb_EndBT1";
             this.Lb_EndBT1.Size = new System.Drawing.Size(0, 13);
             this.Lb_EndBT1.TabIndex = 21;
@@ -222,7 +224,7 @@
             // Lb_NomeBT1
             // 
             this.Lb_NomeBT1.AutoSize = true;
-            this.Lb_NomeBT1.Location = new System.Drawing.Point(67, 36);
+            this.Lb_NomeBT1.Location = new System.Drawing.Point(67, 33);
             this.Lb_NomeBT1.Name = "Lb_NomeBT1";
             this.Lb_NomeBT1.Size = new System.Drawing.Size(0, 13);
             this.Lb_NomeBT1.TabIndex = 20;
@@ -230,7 +232,7 @@
             // Lb_ModoBT1
             // 
             this.Lb_ModoBT1.AutoSize = true;
-            this.Lb_ModoBT1.Location = new System.Drawing.Point(67, 63);
+            this.Lb_ModoBT1.Location = new System.Drawing.Point(67, 60);
             this.Lb_ModoBT1.Name = "Lb_ModoBT1";
             this.Lb_ModoBT1.Size = new System.Drawing.Size(0, 13);
             this.Lb_ModoBT1.TabIndex = 22;
@@ -238,7 +240,7 @@
             // Lb_ClasseBT
             // 
             this.Lb_ClasseBT.AutoSize = true;
-            this.Lb_ClasseBT.Location = new System.Drawing.Point(11, 76);
+            this.Lb_ClasseBT.Location = new System.Drawing.Point(11, 73);
             this.Lb_ClasseBT.Name = "Lb_ClasseBT";
             this.Lb_ClasseBT.Size = new System.Drawing.Size(44, 13);
             this.Lb_ClasseBT.TabIndex = 19;
@@ -247,7 +249,7 @@
             // Lb_EndBT
             // 
             this.Lb_EndBT.AutoSize = true;
-            this.Lb_EndBT.Location = new System.Drawing.Point(11, 49);
+            this.Lb_EndBT.Location = new System.Drawing.Point(11, 46);
             this.Lb_EndBT.Name = "Lb_EndBT";
             this.Lb_EndBT.Size = new System.Drawing.Size(56, 13);
             this.Lb_EndBT.TabIndex = 17;
@@ -256,7 +258,7 @@
             // Lb_NomeBT
             // 
             this.Lb_NomeBT.AutoSize = true;
-            this.Lb_NomeBT.Location = new System.Drawing.Point(11, 36);
+            this.Lb_NomeBT.Location = new System.Drawing.Point(11, 33);
             this.Lb_NomeBT.Name = "Lb_NomeBT";
             this.Lb_NomeBT.Size = new System.Drawing.Size(38, 13);
             this.Lb_NomeBT.TabIndex = 16;
@@ -265,7 +267,7 @@
             // Lb_ModoBT
             // 
             this.Lb_ModoBT.AutoSize = true;
-            this.Lb_ModoBT.Location = new System.Drawing.Point(11, 63);
+            this.Lb_ModoBT.Location = new System.Drawing.Point(11, 60);
             this.Lb_ModoBT.Name = "Lb_ModoBT";
             this.Lb_ModoBT.Size = new System.Drawing.Size(40, 13);
             this.Lb_ModoBT.TabIndex = 18;
@@ -274,7 +276,7 @@
             // Lb_ParRes
             // 
             this.Lb_ParRes.AutoSize = true;
-            this.Lb_ParRes.Location = new System.Drawing.Point(67, 78);
+            this.Lb_ParRes.Location = new System.Drawing.Point(67, 68);
             this.Lb_ParRes.Name = "Lb_ParRes";
             this.Lb_ParRes.Size = new System.Drawing.Size(0, 13);
             this.Lb_ParRes.TabIndex = 15;
@@ -282,7 +284,7 @@
             // Lb_EndeRes
             // 
             this.Lb_EndeRes.AutoSize = true;
-            this.Lb_EndeRes.Location = new System.Drawing.Point(67, 60);
+            this.Lb_EndeRes.Location = new System.Drawing.Point(67, 50);
             this.Lb_EndeRes.Name = "Lb_EndeRes";
             this.Lb_EndeRes.Size = new System.Drawing.Size(0, 13);
             this.Lb_EndeRes.TabIndex = 13;
@@ -290,7 +292,7 @@
             // Lb_DispRes
             // 
             this.Lb_DispRes.AutoSize = true;
-            this.Lb_DispRes.Location = new System.Drawing.Point(67, 42);
+            this.Lb_DispRes.Location = new System.Drawing.Point(67, 32);
             this.Lb_DispRes.Name = "Lb_DispRes";
             this.Lb_DispRes.Size = new System.Drawing.Size(0, 13);
             this.Lb_DispRes.TabIndex = 12;
@@ -298,7 +300,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Location = new System.Drawing.Point(6, 67);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 11;
@@ -307,7 +309,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 59);
+            this.label2.Location = new System.Drawing.Point(6, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 9;
@@ -316,7 +318,7 @@
             // Lb_Disp
             // 
             this.Lb_Disp.AutoSize = true;
-            this.Lb_Disp.Location = new System.Drawing.Point(6, 41);
+            this.Lb_Disp.Location = new System.Drawing.Point(6, 31);
             this.Lb_Disp.Name = "Lb_Disp";
             this.Lb_Disp.Size = new System.Drawing.Size(61, 13);
             this.Lb_Disp.TabIndex = 8;
@@ -337,7 +339,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.Lb_TipoRes);
             this.groupBox4.Controls.Add(this.Lb_ParRes);
+            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.Lb_EndeRes);
             this.groupBox4.Controls.Add(this.Lb_Disp);
@@ -350,6 +354,23 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Informação do Dispositivo";
             // 
+            // Lb_TipoRes
+            // 
+            this.Lb_TipoRes.AutoSize = true;
+            this.Lb_TipoRes.Location = new System.Drawing.Point(46, 84);
+            this.Lb_TipoRes.Name = "Lb_TipoRes";
+            this.Lb_TipoRes.Size = new System.Drawing.Size(0, 13);
+            this.Lb_TipoRes.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 84);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Tipo: ";
+            // 
             // CfgBluetooth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,7 +380,7 @@
             this.Controls.Add(this.groupBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CfgBluetooth";
-            this.Text = "CfgBluetooth";
+            this.Text = "Configuração Bluetooth";
             this.Shown += new System.EventHandler(this.CfgBluetooth_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -402,5 +423,7 @@
         private System.Windows.Forms.Label Lb_StatusBT;
         private System.Windows.Forms.Button Bt_AtualizarStatusBT;
         public System.Windows.Forms.Button Bt_Conectar;
+        private System.Windows.Forms.Label Lb_TipoRes;
+        private System.Windows.Forms.Label label5;
     }
 }
