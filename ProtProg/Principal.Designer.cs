@@ -160,6 +160,8 @@
             // 
             // TB_lit
             // 
+            this.TB_lit.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.TB_lit.Enabled = false;
             this.TB_lit.Location = new System.Drawing.Point(775, 12);
             this.TB_lit.Name = "TB_lit";
             this.TB_lit.ReadOnly = true;
