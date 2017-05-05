@@ -586,8 +586,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.Bt_Literal);
             this.Controls.Add(this.TB_lit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "Principal";
             this.Text = "ProtProg";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Principal_FormClosed);
