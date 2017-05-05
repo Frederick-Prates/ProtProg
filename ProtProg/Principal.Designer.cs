@@ -469,7 +469,6 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.Location = new System.Drawing.Point(20, 246);
             this.numericUpDown1.Maximum = new decimal(new int[] {
