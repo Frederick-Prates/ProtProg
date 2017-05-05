@@ -162,7 +162,7 @@
             // 
             this.TB_lit.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.TB_lit.Enabled = false;
-            this.TB_lit.Location = new System.Drawing.Point(775, 12);
+            this.TB_lit.Location = new System.Drawing.Point(756, 12);
             this.TB_lit.Name = "TB_lit";
             this.TB_lit.ReadOnly = true;
             this.TB_lit.Size = new System.Drawing.Size(188, 263);
@@ -189,7 +189,7 @@
             // 
             // Bt_Literal
             // 
-            this.Bt_Literal.Location = new System.Drawing.Point(775, 281);
+            this.Bt_Literal.Location = new System.Drawing.Point(756, 281);
             this.Bt_Literal.Name = "Bt_Literal";
             this.Bt_Literal.Size = new System.Drawing.Size(91, 60);
             this.Bt_Literal.TabIndex = 8;
@@ -207,7 +207,7 @@
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(525, 12);
+            this.panel2.Location = new System.Drawing.Point(506, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(242, 461);
             this.panel2.TabIndex = 9;
@@ -254,7 +254,7 @@
             this.panel3.Controls.Add(this.moveAH);
             this.panel3.Controls.Add(this.LoopPb);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(287, 12);
+            this.panel3.Location = new System.Drawing.Point(268, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(232, 461);
             this.panel3.TabIndex = 10;
@@ -367,7 +367,7 @@
             // 
             // Bt_LimparTB
             // 
-            this.Bt_LimparTB.Location = new System.Drawing.Point(872, 281);
+            this.Bt_LimparTB.Location = new System.Drawing.Point(853, 281);
             this.Bt_LimparTB.Name = "Bt_LimparTB";
             this.Bt_LimparTB.Size = new System.Drawing.Size(91, 60);
             this.Bt_LimparTB.TabIndex = 11;
@@ -377,7 +377,7 @@
             // 
             // Bt_Enviar
             // 
-            this.Bt_Enviar.Location = new System.Drawing.Point(775, 413);
+            this.Bt_Enviar.Location = new System.Drawing.Point(756, 413);
             this.Bt_Enviar.Name = "Bt_Enviar";
             this.Bt_Enviar.Size = new System.Drawing.Size(188, 60);
             this.Bt_Enviar.TabIndex = 12;
@@ -388,6 +388,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel4.Controls.Add(this.numericUpDown1);
             this.panel4.Controls.Add(this.Bt_LimparLoop);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label10);
@@ -395,11 +396,10 @@
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.numericUpDown1);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Location = new System.Drawing.Point(12, 12);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(269, 461);
+            this.panel4.Size = new System.Drawing.Size(250, 461);
             this.panel4.TabIndex = 14;
             // 
             // Bt_LimparLoop
@@ -469,6 +469,7 @@
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.Location = new System.Drawing.Point(20, 246);
             this.numericUpDown1.Maximum = new decimal(new int[] {
@@ -557,7 +558,7 @@
             // 
             // Bt_Conexao
             // 
-            this.Bt_Conexao.Location = new System.Drawing.Point(775, 347);
+            this.Bt_Conexao.Location = new System.Drawing.Point(756, 347);
             this.Bt_Conexao.Name = "Bt_Conexao";
             this.Bt_Conexao.Size = new System.Drawing.Size(188, 60);
             this.Bt_Conexao.TabIndex = 15;
@@ -577,7 +578,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(971, 477);
+            this.ClientSize = new System.Drawing.Size(952, 477);
             this.Controls.Add(this.Bt_Conexao);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.Bt_Enviar);

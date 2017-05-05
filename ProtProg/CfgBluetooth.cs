@@ -75,10 +75,10 @@ namespace ProtProg
                     Enviar_Principal = true; //Habilita botão de Envio da janela Principal.
                 }
                 //Se algo der errado...
-                catch (Exception e1)
+                catch (Exception c1)
                 {
                     MessageBox.Show("Não foi possível desconectar.");
-                    Console.WriteLine(e1);
+                    Console.WriteLine(c1);
                 }
             }
             // Se conexão não estiver aberta...
@@ -94,10 +94,10 @@ namespace ProtProg
                     this.Hide(); //Esconde janela
                 }
                 //Se algo der errado...
-                catch (Exception e2)
+                catch (Exception c2)
                 {
                     MessageBox.Show("Algo deu errado... Verifique se a porta está correta.");
-                    Console.WriteLine(e2);
+                    Console.WriteLine(c2);
                 }
             }
         }
@@ -114,7 +114,7 @@ namespace ProtProg
             DialogResult result = dialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                BluetoothDeviceInfo selected = dialog.SelectedDevice;
+                BluetoothDeviceInfo Selecionado = dialog.SelectedDevice;
                 // O BluetoothDeviceInfo contem:
                 // DeviceName - Nome do dispositivo
                 // DeviceAddress - Endereço do dispositivo
@@ -127,13 +127,32 @@ namespace ProtProg
                 // LastUsed - Armazena a data e hora em que o dispositivo foi utilizado pela ultima vez.
                 // Remembered - Boleano que especifica se o dispositivo ficou salvo no sistema.
                 // Rssi - Retorna a força do sinal da conexão. Suportado apenas em algumas plataformas.
-                bool pair = Pareamento(selected);
-                AtualizaStatus(selected, pair);
+                bool pair = Pareamento(Selecionado);
+                // Atualiza informações do dispositivo
+                AtualizaStatus(Selecionado, pair);
+                // Cria serial
+                Cria_BTSerialCOM(Selecionado);
+            }
+        }
+
+        // Cria serial para o dispositivo pareado
+        private void Cria_BTSerialCOM(BluetoothDeviceInfo Selecionado)
+        {
+            bool Estado = true;
+            try
+            {
+                Selecionado.SetServiceState(BluetoothService.SerialPort, Estado, true);
+                AtualizarListaCOM();
+            }
+            catch (Exception c3)
+            {
+                AtualizarListaCOM();
+                Console.WriteLine(c3);
             }
         }
 
         // Atualiza labels com o status da conexão bluetooth
-        private void AtualizaStatus(BluetoothDeviceInfo selected, bool pair)
+        private void AtualizaStatus(BluetoothDeviceInfo Selecionado, bool pair)
         {
             //Verifica se está pareado
             if (pair)
@@ -148,27 +167,27 @@ namespace ProtProg
                 Lb_ParRes.ForeColor = System.Drawing.Color.Red;
                 Bt_Conectar.Enabled = false;
             }
-            Lb_DispRes.Text = selected.DeviceName; //Nome do Dispositivo
-            Lb_EndeRes.Text = Convert.ToString(selected.DeviceAddress); // Endereço do dispositivo (MAC Adress)
-            Lb_TipoRes.Text = selected.ClassOfDevice.MajorDevice.ToString(); // Tipo de dispositivo
+            Lb_DispRes.Text = Selecionado.DeviceName; //Nome do Dispositivo
+            Lb_EndeRes.Text = Convert.ToString(Selecionado.DeviceAddress); // Endereço do dispositivo (MAC Adress)
+            Lb_TipoRes.Text = Selecionado.ClassOfDevice.MajorDevice.ToString(); // Tipo de dispositivo
         }
 
         // Incia pareamento com o Protótipo
-        bool Pareamento(BluetoothDeviceInfo selected)
+        bool Pareamento(BluetoothDeviceInfo Selecionado)
         {
             //Realiza autenticação com o PIN
-            bool pareado = BluetoothSecurity.PairRequest(selected.DeviceAddress, "1234");
+            bool pareado = BluetoothSecurity.PairRequest(Selecionado.DeviceAddress, "1234");
             // O segundo argumento do PairRequest é o PIN.
             if (pareado)
             {
                 // Feedback para o usuário informando que o dispositivo foi pareado.
-                MessageBox.Show(" Dispositivo " + selected.DeviceName + " pareado!");
+                MessageBox.Show(" Dispositivo " + Selecionado.DeviceName + " pareado!");
                 return (true);
             }
             else
             {
                 // Feedback para o usuário informando que algum problema aconteceu e não foi pareado.
-                MessageBox.Show("Algum problema ocorreu. Dispositivo " + selected.DeviceName + " não pareado.");
+                MessageBox.Show("Algum problema ocorreu. Dispositivo " + Selecionado.DeviceName + " não pareado.");
                 return (false);
             }
         }
@@ -183,16 +202,21 @@ namespace ProtProg
         // Atualiza lista de Portas COM disponíveis 
         private void Bt_Atualizar_Click(object sender, EventArgs e)
         {
+            AtualizarListaCOM();
+        }
+
+        private void AtualizarListaCOM()
+        {
             Cb_COM.Items.Clear(); // Limpa a lista de COMs
             Cb_COM.Items.AddRange(SerialPort.GetPortNames()); // Adiciona lista de COMs disponíveis
             Cb_COM.Items.Add("Nenhuma"); // Adiciona item "Nenhuma"
             try
             {
-                Cb_COM.SelectedItem = Cb_COM.Items[1]; // Seleciona segundo item da lista
+                Cb_COM.SelectedItem = Cb_COM.Items[0]; // Seleciona segundo item da lista
             }
-            catch (Exception e3) { Console.WriteLine(e3); }
+            catch (Exception c4) { Console.WriteLine(c4); }
         }
-        
+
         // Quando clickar no Botão Atualizar Status ele verifica o status do bluetooth local
         private void Bt_AtualizarStatusBT_Click(object sender, EventArgs e)
         {

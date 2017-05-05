@@ -20,7 +20,7 @@ namespace ProtProg
         String Comandos = null;
         String Cmd_loop = null;
         String NomePrograma = "ProtProg";
-        
+
         // Ao abrir a janela principal realiza as configurações. 
         private void Principal_Load(object sender, EventArgs e)
         {
@@ -122,8 +122,9 @@ namespace ProtProg
                 pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
                 if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou um dos icones de movimento simples.");
             }
-            catch
+            catch(Exception p1)
             {
+                Console.WriteLine(p1);
             }
         }
 
@@ -155,9 +156,9 @@ namespace ProtProg
                 pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
                 if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou Loop Box.");
             }
-            catch(Exception e5)
+            catch(Exception p2)
             {
-                Console.Write(e5);
+                Console.Write(p2);
             }
         }
 
@@ -226,9 +227,9 @@ namespace ProtProg
                 }
                 TB_lit.Text += "... e Fim!";
             }
-            catch (Exception p2)
+            catch (Exception p3)
             {
-                Console.WriteLine(p2);
+                Console.WriteLine(p3);
             }
             if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Literal");
         }
@@ -468,8 +469,12 @@ namespace ProtProg
         private void Bt_Conexao_Click(object sender, EventArgs e)
         {
             btcfg.ShowDialog(); // Mostra janela de configuração da conexão.
-            if(!Bt_Enviar.Enabled) Bt_Enviar.Enabled = btcfg.Enviar_Principal; // Se botão Enviar estiver desabilitado e usuário fizer
-            // a desconexão da serial pelo dialog, então volta a habilitar o enviar.
+            if (!Bt_Enviar.Enabled)
+            {
+                Bt_Enviar.Enabled = btcfg.Enviar_Principal; // Se botão Enviar estiver desabilitado e usuário fizer
+                                                            // a desconexão da serial pelo dialog, então volta a habilitar o enviar.
+                Bt_Enviar.Text = "Enviar";
+            }
 
             if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Conexão.");
         }
@@ -492,26 +497,31 @@ namespace ProtProg
             {
                 try
                 {
-                    // Se o Background worker não foi disparado, então dispara.
-                    if (!Bg_Worker.IsBusy)  Bg_Worker.RunWorkerAsync();
-                    ProtBT.WriteLine(ComandoMontado()); //Envia comando para Prototipo
-                    Bt_Enviar.Enabled = false; // Desabilita botão e só volta a habilitar quando confirmar fim da execução
-                    Bt_Enviar.Text = "Ocupado"; // Altera texto do botão Enviar
-                    if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e enviou com sucesso");
+                    // Se o tamanho do comando for maior que 1 então ...
+                    if(ComandoMontado().Length > 1)
+                    {
+                        // Se o Background worker não foi disparado, então dispara.
+                        if (!Bg_Worker.IsBusy) Bg_Worker.RunWorkerAsync();
+                        ProtBT.WriteLine(ComandoMontado()); //Envia comando para Prototipo
+                        Bt_Enviar.Enabled = false; // Desabilita botão e só volta a habilitar quando confirmar fim da execução
+                        Bt_Enviar.Text = "Ocupado"; // Altera texto do botão Enviar
+                        if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e enviou com sucesso");
+                    }
                 }
                 // Caso haja alguma falha...
-                catch(Exception e3)
+                catch(Exception p4)
                 {
-                    TB_lit.Text += TB_lit + "Comando não enviado.";
-                    Console.WriteLine(e3);
-                    if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (ENVIO).");
+                    //Avisa usuário que comando não foi enviado
+                    TB_lit.AppendText("\nComando não enviado.");
+                    Console.WriteLine(p4);
+                    if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (problema no ENVIO).");
                 }
             }
             // Senão estiver aberta então...
             else
             {
                 MessageBox.Show("Protótipo ainda não conectado.");
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (SERIAL).");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (SERIAL Fechada).");
             }
         }
 
@@ -531,9 +541,9 @@ namespace ProtProg
                         Bg_Worker.ReportProgress(100, x); // Reporta evento "ProgressChanged" com progresso 100% e a string com "$$".
                     }
                 }
-                catch (Exception e6)
+                catch (Exception p5)
                 {
-                    Console.Write(e6);
+                    Console.Write(p5);
                 }
             }
         }
@@ -547,22 +557,23 @@ namespace ProtProg
             Bt_Enviar.Text = "Enviar"; // Altera texto do botão Enviar
         }
 
-        // 
+        // Detecta CTRL+L e abre a janela do Log de Ações
         private void Principal_KeyDown(object sender, KeyEventArgs e)
         {
             //KeyPreview tem que ser true nas propriedades do Form
             if (e.KeyData == (Keys.Control | Keys.L)) LogAcoes.ShowDialog();
-            if (LogAcoes.EstadoLog) this.Text = NomePrograma + " - Log Ativo";
-            else { this.Text = NomePrograma + " - Log Desativado"; }
+            if (LogAcoes.EstadoLog) this.Text = NomePrograma + " - Log Ativo"; // Se o log estiver ativo, então avisa no topo da janela principal
+            else { this.Text = NomePrograma + " - Log Desativado"; } // Caso contrário, então avisa que está desativado.
         }
 
         // Captura o evento de fechamento da janela e encerra comunicação serial se ela estiver aberta
         private void Principal_FormClosed(object sender, FormClosedEventArgs e)
         {
+            // Salva arquivo aberto se o log de ações estiver ativo.
             if (LogAcoes.EstadoLog)
             {
                 LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Fechou programa.");
-                LogAcoes.sw.Close();
+                LogAcoes.sw.Close(); // Fecha escritor do arquivo.
             }
             if (ProtBT.IsOpen) ProtBT.Close(); // Encerra conexão serial.
             if (Bg_Worker.IsBusy) Bg_Worker.CancelAsync(); //Se estiver em execução, cancela.
