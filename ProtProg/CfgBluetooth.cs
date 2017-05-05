@@ -44,7 +44,7 @@ namespace ProtProg
                 Lb_NomeBT1.Text = ""; // Limpa Nome 
                 Lb_ModoBT1.Text = ""; // Limpa Modo
                 Lb_ClasseBT1.Text = ""; // Limpa Classe
-                MessageBox.Show("Bluetooth desativado. É necessário que você o ative."); // Mostra mensagem alertando usuário.
+                MessageBox.Show("Bluetooth desativado. É necessário que você o ative pelo Windows."); // Mostra mensagem alertando usuário.
             }
             // Se estiver ligado então..
             else
@@ -77,7 +77,8 @@ namespace ProtProg
                 //Se algo der errado...
                 catch (Exception e1)
                 {
-                    MessageBox.Show("Não foi possível desconectar." + e1);
+                    MessageBox.Show("Não foi possível desconectar.");
+                    Console.WriteLine(e1);
                 }
             }
             // Se conexão não estiver aberta...
@@ -95,7 +96,8 @@ namespace ProtProg
                 //Se algo der errado...
                 catch (Exception e2)
                 {
-                    MessageBox.Show("Algo deu errado... Verifique se a porta está correta." + e2);
+                    MessageBox.Show("Algo deu errado... Verifique se a porta está correta.");
+                    Console.WriteLine(e2);
                 }
             }
         }
@@ -184,7 +186,11 @@ namespace ProtProg
             Cb_COM.Items.Clear(); // Limpa a lista de COMs
             Cb_COM.Items.AddRange(SerialPort.GetPortNames()); // Adiciona lista de COMs disponíveis
             Cb_COM.Items.Add("Nenhuma"); // Adiciona item "Nenhuma"
-            Cb_COM.SelectedItem = Cb_COM.Items[1]; // Seleciona segundo item da lista
+            try
+            {
+                Cb_COM.SelectedItem = Cb_COM.Items[1]; // Seleciona segundo item da lista
+            }
+            catch (Exception e3) { Console.WriteLine(e3); }
         }
         
         // Quando clickar no Botão Atualizar Status ele verifica o status do bluetooth local

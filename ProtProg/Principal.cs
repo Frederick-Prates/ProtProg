@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO.Ports;
-using System.Threading;
 
 namespace ProtProg
 {
@@ -16,10 +15,12 @@ namespace ProtProg
 
         // Variáveis Globais
         CfgBluetooth btcfg = new CfgBluetooth();
+        Log LogAcoes = new Log();
         public static SerialPort ProtBT = new SerialPort();
         String Comandos = null;
         String Cmd_loop = null;
-
+        String NomePrograma = "ProtProg";
+        
         // Ao abrir a janela principal realiza as configurações. 
         private void Principal_Load(object sender, EventArgs e)
         {
@@ -119,6 +120,7 @@ namespace ProtProg
                 PictureBox pb = (PictureBox)sender;
                 pb.Select();
                 pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou um dos icones de movimento simples.");
             }
             catch
             {
@@ -151,12 +153,15 @@ namespace ProtProg
                 PictureBox pb = (PictureBox)sender;
                 pb.Select();
                 pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou Loop Box.");
             }
             catch(Exception e5)
             {
                 Console.Write(e5);
             }
         }
+
+        
 
         private void MoveLoop_DragEnter(object sender, DragEventArgs e)
         {
@@ -169,7 +174,7 @@ namespace ProtProg
 
                 else
                 {
-                   // MessageBox.Show("Infelizmente não é possível utilizar a Loop box dentro do loop.\n(Pressione ENTER para continuar)");
+                    MessageBox.Show("Infelizmente não é possível utilizar a Loop box dentro do loop.\n(Pressione ENTER para continuar)");
                     e.Effect = DragDropEffects.None;
                 }
             }
@@ -196,29 +201,36 @@ namespace ProtProg
        // Botão que promove a tradução literal dos simbolos do bloco de comandos.
         private void Bt_Literal_Click(object sender, EventArgs e)
         {
-            String LCmd = "";
-               LCmd = PegaSeq();
-            TB_lit.Text = "Ok! Vamos ver se eu entendi...\n";
-            for (int i = 0; i<LCmd.Length; i++)
+            String LCmd = PegaSeq();
+            try
             {
-                if (LCmd[i] == 'F')
+                if(LCmd.Length >0) TB_lit.Text = "Ok! Vamos ver se eu entendi...\n";
+                for (int i = 0; i < LCmd.Length; i++)
                 {
-                    TB_lit.Text += "Movo para FRENTE\n";
+                    if (LCmd[i] == 'F')
+                    {
+                        TB_lit.Text += "Movo para FRENTE\n";
+                    }
+                    if (LCmd[i] == 'H')
+                    {
+                        TB_lit.Text += "Giro para DIREITA\n";
+                    }
+                    if (LCmd[i] == 'A')
+                    {
+                        TB_lit.Text += "Giro para ESQUERDA\n";
+                    }
+                    if (LCmd[i] == 'O')
+                    {
+                        TB_lit.Text += "Executo o loop que vc montou\n";
+                    }
                 }
-                if (LCmd[i] == 'H')
-                {
-                    TB_lit.Text += "Giro 90 graus para DIREITA\n";
-                }
-                if (LCmd[i] == 'A')
-                {
-                    TB_lit.Text += "Giro 90 graus para ESQUERDA\n";
-                }
-                if (LCmd[i] == 'O')
-                {
-                    TB_lit.Text += "Executo o loop que vc montou\n";
-                }
+                TB_lit.Text += "... e Fim!";
             }
-            TB_lit.Text += "... e Fim!";
+            catch (Exception p2)
+            {
+                Console.WriteLine(p2);
+            }
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Literal");
         }
 
         // Monta o comando do bloco de comando
@@ -394,12 +406,25 @@ namespace ProtProg
             return (temp);
         }
 
-        // Botão que limpa a caixa de texto, bloco de comando e loop.
-        private void Bt_Limpar_Click(object sender, EventArgs e)
+        // Botão que limpa a caixa de texto.
+        private void Bt_LimparTB_Click(object sender, EventArgs e)
         {
             LimparTxt();    //limpa caixa de texto
-            LimparCmds();   //limpa bloco de comandos
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Limpar Texto.");
+        }
+
+        // Botão que limpa Loop
+        private void Bt_LimparLoop_Click(object sender, EventArgs e)
+        {
             LimparLoop();   //limpa bloco de loop
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Limpar Loop.");
+        }
+
+        // Botão que limpa comandos
+        private void Bt_LimparCmds_Click(object sender, EventArgs e)
+        {
+            LimparCmds();   //limpa bloco de comandos
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Limpar Comandos.");
         }
 
         //Limpa bloco de loop
@@ -435,7 +460,8 @@ namespace ProtProg
         private void Bt_Gerar_Click(object sender, EventArgs e)
         {
             Cmd_loop = PegaSeqLoop(); // Armazena em Cmd_loop o comando montado no bloco de loop
-            MessageBox.Show("Loop salvo!");
+            MessageBox.Show("Loop salvo na Loop Box!");
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Gerar.");
         }
 
         // Botão que abre dialog para configurar o pareamento de bluetooth e serial
@@ -444,8 +470,10 @@ namespace ProtProg
             btcfg.ShowDialog(); // Mostra janela de configuração da conexão.
             if(!Bt_Enviar.Enabled) Bt_Enviar.Enabled = btcfg.Enviar_Principal; // Se botão Enviar estiver desabilitado e usuário fizer
             // a desconexão da serial pelo dialog, então volta a habilitar o enviar.
-        }
 
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Conexão.");
+        }
+        
         // Monta o comando para ser enviado pela serial
         private string ComandoMontado()
         {
@@ -469,18 +497,21 @@ namespace ProtProg
                     ProtBT.WriteLine(ComandoMontado()); //Envia comando para Prototipo
                     Bt_Enviar.Enabled = false; // Desabilita botão e só volta a habilitar quando confirmar fim da execução
                     Bt_Enviar.Text = "Ocupado"; // Altera texto do botão Enviar
+                    if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e enviou com sucesso");
                 }
                 // Caso haja alguma falha...
                 catch(Exception e3)
                 {
                     TB_lit.Text += TB_lit + "Comando não enviado.";
                     Console.WriteLine(e3);
+                    if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (ENVIO).");
                 }
             }
             // Senão estiver aberta então...
             else
             {
                 MessageBox.Show("Protótipo ainda não conectado.");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (SERIAL).");
             }
         }
 
@@ -516,9 +547,23 @@ namespace ProtProg
             Bt_Enviar.Text = "Enviar"; // Altera texto do botão Enviar
         }
 
+        // 
+        private void Principal_KeyDown(object sender, KeyEventArgs e)
+        {
+            //KeyPreview tem que ser true nas propriedades do Form
+            if (e.KeyData == (Keys.Control | Keys.L)) LogAcoes.ShowDialog();
+            if (LogAcoes.EstadoLog) this.Text = NomePrograma + " - Log Ativo";
+            else { this.Text = NomePrograma + " - Log Desativado"; }
+        }
+
         // Captura o evento de fechamento da janela e encerra comunicação serial se ela estiver aberta
         private void Principal_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if (LogAcoes.EstadoLog)
+            {
+                LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Fechou programa.");
+                LogAcoes.sw.Close();
+            }
             if (ProtBT.IsOpen) ProtBT.Close(); // Encerra conexão serial.
             if (Bg_Worker.IsBusy) Bg_Worker.CancelAsync(); //Se estiver em execução, cancela.
         }
