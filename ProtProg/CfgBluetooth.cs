@@ -12,7 +12,7 @@ namespace ProtProg
         public CfgBluetooth()
         {
             InitializeComponent();
-            Estado_inicial();
+            Estado_inicial(); // Inicializa configuração de Estado Inicial
         }
 
         private bool enviar_Principal; // Variavel booleana usada como intermediária para modificar o valor de Bt_Enviar.Enabled 
@@ -24,11 +24,11 @@ namespace ProtProg
         // Configura Combo Boxes para um estado inicial e desabilita o botão "Conectar"
         void Estado_inicial()
         {
-            Cb_BaudRate.Items.AddRange(new string[] { "4800", "9600", "14400", "19200", "38400" });
-            Cb_BaudRate.SelectedItem = "9600";
-            Cb_COM.Items.Add("Nenhuma");
-            Cb_COM.SelectedItem = "Nenhuma";
-            Bt_Conectar.Enabled = false;
+            Cb_BaudRate.Items.AddRange(new string[] { "4800", "9600", "14400", "19200", "38400" }); //Adiciona Baud Rates à lista da Combo Box
+            Cb_BaudRate.SelectedItem = "9600"; // Seleciona 9600 no Combo Box de Baud Rate
+            Cb_COM.Items.Add("Nenhuma"); // Adiciona "Nenhuma" no Combo Box de Porta COM 
+            Cb_COM.SelectedItem = "Nenhuma"; // Seleciona "Nenhuma" no Combo Box de Porta COM
+            Bt_Conectar.Enabled = false; //Desabilita botão Conectar
         }
         
         // Verifica o status do Bluetooth
@@ -101,9 +101,11 @@ namespace ProtProg
                 }
             }
         }
+
+        // Ao clickar no botão Cancelar a janela é escondida
         private void Bt_Cancelar_Click(object sender, EventArgs e)
         {
-            this.Close(); // Fecha janela
+            this.Close(); // Esconde janela
         }
 
         // A dialog da 32Feet permite enchergar e selecionar dispositivos bluetooth que já estiveram conectados
@@ -157,15 +159,15 @@ namespace ProtProg
             //Verifica se está pareado
             if (pair)
             {
-                Lb_ParRes.Text = "Sim";
-                Lb_ParRes.ForeColor = System.Drawing.Color.Green;
-                Bt_Conectar.Enabled = true;
+                Lb_ParRes.Text = "Sim"; // Escreve Sim no label de Pareado
+                Lb_ParRes.ForeColor = System.Drawing.Color.Green; // Troca cor da fonte para verde
+                Bt_Conectar.Enabled = true; // Habilita botão de Conectar
             }
             else
             {
-                Lb_ParRes.Text = "Não";
-                Lb_ParRes.ForeColor = System.Drawing.Color.Red;
-                Bt_Conectar.Enabled = false;
+                Lb_ParRes.Text = "Não"; // Escreve Não no label de Pareado
+                Lb_ParRes.ForeColor = System.Drawing.Color.Red; // Troca cor da fonte para vermelho
+                Bt_Conectar.Enabled = false; // Desabilita/Não ativa botão Conectar
             }
             Lb_DispRes.Text = Selecionado.DeviceName; //Nome do Dispositivo
             Lb_EndeRes.Text = Convert.ToString(Selecionado.DeviceAddress); // Endereço do dispositivo (MAC Adress)
@@ -212,7 +214,7 @@ namespace ProtProg
             Cb_COM.Items.Add("Nenhuma"); // Adiciona item "Nenhuma"
             try
             {
-                Cb_COM.SelectedItem = Cb_COM.Items[0]; // Seleciona segundo item da lista
+                Cb_COM.SelectedItem = Cb_COM.Items[0]; // Seleciona primeiro item da lista
             }
             catch (Exception c4) { Console.WriteLine(c4); }
         }

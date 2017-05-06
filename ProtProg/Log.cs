@@ -25,8 +25,10 @@ namespace ProtProg
         {
             try
             {
+                // Se diretório não existe...
                 if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + @"LogAcoes\"))
                 {
+                    // Criar diretório.
                     Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"LogAcoes\");
                 }
             }
@@ -77,10 +79,12 @@ namespace ProtProg
         {
             try
             {
+                // Chama diretório
                 System.Diagnostics.Process.Start(AppDomain.CurrentDomain.BaseDirectory + @"LogAcoes\");
             }
             catch(Exception l2)
             {
+                // Se houver algum problema para abrir o diretório então...
                 Console.WriteLine(l2);
             }
         }

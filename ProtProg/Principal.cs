@@ -205,7 +205,7 @@ namespace ProtProg
             String LCmd = PegaSeq();
             try
             {
-                if(LCmd.Length >0) TB_lit.Text = "Ok! Vamos ver se eu entendi...\n";
+                if (LCmd.Length > 0) TB_lit.Text = "Ok! Vamos ver se eu entendi...\n";
                 for (int i = 0; i < LCmd.Length; i++)
                 {
                     if (LCmd[i] == 'F')
@@ -233,7 +233,7 @@ namespace ProtProg
             }
             if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Literal");
         }
-
+        
         // Monta o comando do bloco de comando
         private String PegaSeq()
         {
@@ -330,70 +330,70 @@ namespace ProtProg
         // Monta o comando do bloco de Loop
         private String PegaSeqLoop()
         {
-            String temp = null;
+            String temploop = null;
             if (LoopPcBox1.Image == moveF.Image)
             {
-                temp += "F";
+                temploop += "F";
             }
             else if (LoopPcBox1.Image == moveH.Image)
             {
-                temp += "H";
+                temploop += "H";
             }
             else if (LoopPcBox1.Image == moveAH.Image)
             {
-                temp += "A";
+                temploop += "A";
             }
             /////////////
             if (LoopPcBox2.Image == moveF.Image)
             {
-                temp += "F";
+                temploop += "F";
             }
             else if (LoopPcBox2.Image == moveH.Image)
             {
-                temp += "H";
+                temploop += "H";
             }
             else if (LoopPcBox2.Image == moveAH.Image)
             {
-                temp += "A";
+                temploop += "A";
             }
             /////////////
             if (LoopPcBox3.Image == moveF.Image)
             {
-                temp += "F";
+                temploop += "F";
             }
             else if (LoopPcBox3.Image == moveH.Image)
             {
-                temp += "H";
+                temploop += "H";
             }
             else if (LoopPcBox3.Image == moveAH.Image)
             {
-                temp += "A";
+                temploop += "A";
             }
             /////////////
             if (LoopPcBox4.Image == moveF.Image)
             {
-                temp += "F";
+                temploop += "F";
             }
             else if (LoopPcBox4.Image == moveH.Image)
             {
-                temp += "H";
+                temploop += "H";
             }
             else if (LoopPcBox4.Image == moveAH.Image)
             {
-                temp += "A";
+                temploop += "A";
             }
             ////////////
             if (LoopPcBox5.Image == moveF.Image)
             {
-                temp += "F";
+                temploop += "F";
             }
             else if (LoopPcBox5.Image == moveH.Image)
             {
-                temp += "H";
+                temploop += "H";
             }
             else if (LoopPcBox5.Image == moveAH.Image)
             {
-                temp += "A";
+                temploop += "A";
             }
             ////////////
             // Trecho faz as repetições solicitadas pelo usuário pelo numericUpDown. Se limiteloop
@@ -402,9 +402,10 @@ namespace ProtProg
             // Ex: Para limiteloop = 1 e Bloco de Repetição = "FFHA", então loop = "FFHA".
             //  Para limiteloop = 2 e Bloco de Repetição = "FFHA", então loop = "FFHAFFHA".
             int limiteloop = Decimal.ToInt16(numericUpDown1.Value);
-            for (int k = 0; k < (limiteloop-1); k++) temp += temp;
+            string repete = null;
+            for (int k = 0; k < limiteloop; k++) repete += temploop;
             ////////////
-            return (temp);
+            return (repete);
         }
 
         // Botão que limpa a caixa de texto.
@@ -469,11 +470,12 @@ namespace ProtProg
         private void Bt_Conexao_Click(object sender, EventArgs e)
         {
             btcfg.ShowDialog(); // Mostra janela de configuração da conexão.
+            // Se o botão Enviar não estiver habilitado, então ...
             if (!Bt_Enviar.Enabled)
             {
                 Bt_Enviar.Enabled = btcfg.Enviar_Principal; // Se botão Enviar estiver desabilitado e usuário fizer
                                                             // a desconexão da serial pelo dialog, então volta a habilitar o enviar.
-                Bt_Enviar.Text = "Enviar";
+                Bt_Enviar.Text = "Enviar"; // Altera texto do botão Enviar de Ocupado para Enviar
             }
 
             if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Conexão.");
