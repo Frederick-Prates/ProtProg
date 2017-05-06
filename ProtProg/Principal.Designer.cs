@@ -56,6 +56,7 @@
             this.Bt_LimparTB = new System.Windows.Forms.Button();
             this.Bt_Enviar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.Bt_LimparLoop = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel5 = new System.Windows.Forms.Panel();
             this.LoopPcBox2 = new System.Windows.Forms.PictureBox();
             this.LoopPcBox5 = new System.Windows.Forms.PictureBox();
@@ -72,6 +72,7 @@
             this.LoopPcBox1 = new System.Windows.Forms.PictureBox();
             this.Bt_Conexao = new System.Windows.Forms.Button();
             this.Bg_Worker = new System.ComponentModel.BackgroundWorker();
+            this.Lb_EstadoLoopBox = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmd5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmd4)).BeginInit();
@@ -244,6 +245,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.Lb_EstadoLoopBox);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label12);
@@ -402,6 +404,30 @@
             this.panel4.Size = new System.Drawing.Size(250, 461);
             this.panel4.TabIndex = 14;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Location = new System.Drawing.Point(20, 246);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.ReadOnly = true;
+            this.numericUpDown1.Size = new System.Drawing.Size(91, 62);
+            this.numericUpDown1.TabIndex = 16;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // Bt_LimparLoop
             // 
             this.Bt_LimparLoop.Location = new System.Drawing.Point(20, 382);
@@ -466,30 +492,6 @@
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Loop";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(20, 246);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.ReadOnly = true;
-            this.numericUpDown1.Size = new System.Drawing.Size(91, 62);
-            this.numericUpDown1.TabIndex = 16;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // panel5
             // 
@@ -571,6 +573,14 @@
             this.Bg_Worker.WorkerSupportsCancellation = true;
             this.Bg_Worker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Bg_Worker_DoWork);
             this.Bg_Worker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.Bg_Worker_ProgressChanged);
+            // 
+            // Lb_EstadoLoopBox
+            // 
+            this.Lb_EstadoLoopBox.AutoSize = true;
+            this.Lb_EstadoLoopBox.Location = new System.Drawing.Point(92, 334);
+            this.Lb_EstadoLoopBox.Name = "Lb_EstadoLoopBox";
+            this.Lb_EstadoLoopBox.Size = new System.Drawing.Size(0, 13);
+            this.Lb_EstadoLoopBox.TabIndex = 26;
             // 
             // Principal
             // 
@@ -667,6 +677,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button Bt_LimparLoop;
+        private System.Windows.Forms.Label Lb_EstadoLoopBox;
     }
 }
 

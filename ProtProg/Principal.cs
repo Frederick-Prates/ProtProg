@@ -28,6 +28,8 @@ namespace ProtProg
             HabilitaDrops();
             // Configura ações do drag and drop.
             ConfiguraDragsnDrop();
+            // Loop Box vazia
+            EstadoLoopBox(false);
         }
 
         // Habilita drops nos blocos de comando e de loop
@@ -438,6 +440,7 @@ namespace ProtProg
             LoopPcBox4.Image = null;
             LoopPcBox5.Image = null;
             Cmd_loop = null;
+            EstadoLoopBox(false);
         }
 
         //Limpa bloco de comandos
@@ -462,8 +465,33 @@ namespace ProtProg
         private void Bt_Gerar_Click(object sender, EventArgs e)
         {
             Cmd_loop = PegaSeqLoop(); // Armazena em Cmd_loop o comando montado no bloco de loop
-            MessageBox.Show("Loop salvo na Loop Box!");
-            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Gerar.");
+            if(Cmd_loop.Length > 0)
+            {
+                MessageBox.Show("Loop salvo na Loop Box!");
+                EstadoLoopBox(true);
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Gerar. Gerou com sucesso");
+            }
+            else
+            {
+                MessageBox.Show("Bloco de loop vazio! Gerou Loop Box vazia.");
+                EstadoLoopBox(false);
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Gerar. Gerou Loop Box vazia");
+            }
+            
+        }
+
+        private void EstadoLoopBox(bool Carregado)
+        {
+            if (Carregado)
+            {
+                Lb_EstadoLoopBox.Text = "Carregado";
+                Lb_EstadoLoopBox.ForeColor = System.Drawing.Color.DarkGreen;
+            }
+            else
+            {
+                Lb_EstadoLoopBox.Text = "Vazio";
+                Lb_EstadoLoopBox.ForeColor = System.Drawing.Color.Red;
+            }
         }
 
         // Botão que abre dialog para configurar o pareamento de bluetooth e serial
