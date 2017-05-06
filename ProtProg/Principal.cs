@@ -11,6 +11,7 @@ namespace ProtProg
         public Principal()
         {
             InitializeComponent();
+            LimparTudo();
         }
 
         // Variáveis Globais
@@ -170,16 +171,7 @@ namespace ProtProg
         {
             if (e.Data.GetDataPresent(DataFormats.Bitmap))
             {
-                if ((Bitmap)e.Data.GetData(DataFormats.Bitmap) != LoopPb.Image)
-                {
-                    e.Effect = DragDropEffects.Copy;
-                }
-
-                else
-                {
-                    MessageBox.Show("Infelizmente não é possível utilizar a Loop box dentro do loop.\n(Pressione ENTER para continuar)");
-                    e.Effect = DragDropEffects.None;
-                }
+                e.Effect = DragDropEffects.Copy;
             }
             else
             {
@@ -196,7 +188,7 @@ namespace ProtProg
             }
             else
             {
-                pb.Image = null;
+                MessageBox.Show("Infelizmente não é possível utilizar a Loop Box dentro do loop.");
             }
         }
         // Fim da Configuração do Drag and Drop
@@ -410,6 +402,20 @@ namespace ProtProg
             return (repete);
         }
 
+        // Botão para limpar toda a interface
+        private void Bt_LimparTudo_Click(object sender, EventArgs e)
+        {
+            LimparTudo(); // Método para limpar toda interface
+        }
+
+        // Método para limpar toda interface
+        private void LimparTudo()
+        {
+            LimparTxt(); //limpa caixa de texto
+            LimparLoop(); //limpa bloco de loop
+            LimparCmds(); //limpa bloco de comandos
+        }
+
         // Botão que limpa a caixa de texto.
         private void Bt_LimparTB_Click(object sender, EventArgs e)
         {
@@ -434,11 +440,11 @@ namespace ProtProg
         //Limpa bloco de loop
         private void LimparLoop()
         {
-            LoopPcBox1.Image = null;
-            LoopPcBox2.Image = null;
-            LoopPcBox3.Image = null;
-            LoopPcBox4.Image = null;
-            LoopPcBox5.Image = null;
+            LoopPcBox1.Image = ProtProg.Properties.Resources.Invisivel;
+            LoopPcBox2.Image = ProtProg.Properties.Resources.Invisivel;
+            LoopPcBox3.Image = ProtProg.Properties.Resources.Invisivel;
+            LoopPcBox4.Image = ProtProg.Properties.Resources.Invisivel;
+            LoopPcBox5.Image = ProtProg.Properties.Resources.Invisivel;
             Cmd_loop = null;
             EstadoLoopBox(false);
         }
@@ -446,11 +452,11 @@ namespace ProtProg
         //Limpa bloco de comandos
         private void LimparCmds()
         {
-            cmd1.Image = null;
-            cmd2.Image = null;
-            cmd3.Image = null;
-            cmd4.Image = null;
-            cmd5.Image = null;
+            cmd1.Image = ProtProg.Properties.Resources.Invisivel;
+            cmd2.Image = ProtProg.Properties.Resources.Invisivel;
+            cmd3.Image = ProtProg.Properties.Resources.Invisivel;
+            cmd4.Image = ProtProg.Properties.Resources.Invisivel;
+            cmd5.Image = ProtProg.Properties.Resources.Invisivel;
             Comandos = null;
         }
 
@@ -480,6 +486,7 @@ namespace ProtProg
             
         }
 
+        // Altera estado do Loop Box quando está carregado ou vazio
         private void EstadoLoopBox(bool Carregado)
         {
             if (Carregado)

@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cmd5 = new System.Windows.Forms.PictureBox();
-            this.cmd4 = new System.Windows.Forms.PictureBox();
-            this.cmd3 = new System.Windows.Forms.PictureBox();
-            this.cmd2 = new System.Windows.Forms.PictureBox();
-            this.cmd1 = new System.Windows.Forms.PictureBox();
             this.TB_lit = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,15 +39,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Lb_EstadoLoopBox = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.moveF = new System.Windows.Forms.PictureBox();
-            this.moveH = new System.Windows.Forms.PictureBox();
-            this.moveAH = new System.Windows.Forms.PictureBox();
-            this.LoopPb = new System.Windows.Forms.PictureBox();
             this.Bt_LimparTB = new System.Windows.Forms.Button();
             this.Bt_Enviar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -65,26 +57,26 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.Bt_Conexao = new System.Windows.Forms.Button();
+            this.Bg_Worker = new System.ComponentModel.BackgroundWorker();
             this.LoopPcBox2 = new System.Windows.Forms.PictureBox();
             this.LoopPcBox5 = new System.Windows.Forms.PictureBox();
             this.LoopPcBox3 = new System.Windows.Forms.PictureBox();
             this.LoopPcBox4 = new System.Windows.Forms.PictureBox();
             this.LoopPcBox1 = new System.Windows.Forms.PictureBox();
-            this.Bt_Conexao = new System.Windows.Forms.Button();
-            this.Bg_Worker = new System.ComponentModel.BackgroundWorker();
-            this.Lb_EstadoLoopBox = new System.Windows.Forms.Label();
+            this.moveF = new System.Windows.Forms.PictureBox();
+            this.moveH = new System.Windows.Forms.PictureBox();
+            this.moveAH = new System.Windows.Forms.PictureBox();
+            this.LoopPb = new System.Windows.Forms.PictureBox();
+            this.cmd5 = new System.Windows.Forms.PictureBox();
+            this.cmd4 = new System.Windows.Forms.PictureBox();
+            this.cmd3 = new System.Windows.Forms.PictureBox();
+            this.cmd2 = new System.Windows.Forms.PictureBox();
+            this.cmd1 = new System.Windows.Forms.PictureBox();
+            this.Bt_LimparTudo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmd5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmd4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmd3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmd2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmd1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.moveF)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moveH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moveAH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LoopPb)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -93,6 +85,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveAH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoopPb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,56 +109,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(83, 393);
             this.panel1.TabIndex = 2;
-            // 
-            // cmd5
-            // 
-            this.cmd5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cmd5.Location = new System.Drawing.Point(6, 311);
-            this.cmd5.Name = "cmd5";
-            this.cmd5.Size = new System.Drawing.Size(70, 70);
-            this.cmd5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cmd5.TabIndex = 5;
-            this.cmd5.TabStop = false;
-            // 
-            // cmd4
-            // 
-            this.cmd4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cmd4.Location = new System.Drawing.Point(6, 234);
-            this.cmd4.Name = "cmd4";
-            this.cmd4.Size = new System.Drawing.Size(70, 70);
-            this.cmd4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cmd4.TabIndex = 5;
-            this.cmd4.TabStop = false;
-            // 
-            // cmd3
-            // 
-            this.cmd3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cmd3.Location = new System.Drawing.Point(6, 158);
-            this.cmd3.Name = "cmd3";
-            this.cmd3.Size = new System.Drawing.Size(70, 70);
-            this.cmd3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cmd3.TabIndex = 3;
-            this.cmd3.TabStop = false;
-            // 
-            // cmd2
-            // 
-            this.cmd2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cmd2.Location = new System.Drawing.Point(6, 82);
-            this.cmd2.Name = "cmd2";
-            this.cmd2.Size = new System.Drawing.Size(70, 70);
-            this.cmd2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cmd2.TabIndex = 2;
-            this.cmd2.TabStop = false;
-            // 
-            // cmd1
-            // 
-            this.cmd1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cmd1.Location = new System.Drawing.Point(6, 6);
-            this.cmd1.Name = "cmd1";
-            this.cmd1.Size = new System.Drawing.Size(70, 70);
-            this.cmd1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.cmd1.TabIndex = 1;
-            this.cmd1.TabStop = false;
             // 
             // TB_lit
             // 
@@ -245,6 +196,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.Bt_LimparTudo);
             this.panel3.Controls.Add(this.Lb_EstadoLoopBox);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label13);
@@ -260,6 +212,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(232, 461);
             this.panel3.TabIndex = 10;
+            // 
+            // Lb_EstadoLoopBox
+            // 
+            this.Lb_EstadoLoopBox.AutoSize = true;
+            this.Lb_EstadoLoopBox.Location = new System.Drawing.Point(92, 334);
+            this.Lb_EstadoLoopBox.Name = "Lb_EstadoLoopBox";
+            this.Lb_EstadoLoopBox.Size = new System.Drawing.Size(0, 13);
+            this.Lb_EstadoLoopBox.TabIndex = 26;
             // 
             // label14
             // 
@@ -306,66 +266,6 @@
             this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Pegue daqui...";
-            // 
-            // moveF
-            // 
-            this.moveF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.moveF.Image = global::ProtProg.Properties.Resources.reto2;
-            this.moveF.Location = new System.Drawing.Point(81, 109);
-            this.moveF.Name = "moveF";
-            this.moveF.Size = new System.Drawing.Size(70, 70);
-            this.moveF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.moveF.TabIndex = 0;
-            this.moveF.TabStop = false;
-            this.moveF.Tag = "Up";
-            this.moveF.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
-            this.moveF.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
-            this.moveF.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
-            // 
-            // moveH
-            // 
-            this.moveH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.moveH.Image = global::ProtProg.Properties.Resources.gir_horario;
-            this.moveH.Location = new System.Drawing.Point(150, 178);
-            this.moveH.Name = "moveH";
-            this.moveH.Size = new System.Drawing.Size(70, 70);
-            this.moveH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.moveH.TabIndex = 3;
-            this.moveH.TabStop = false;
-            this.moveH.Tag = "mH";
-            this.moveH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
-            this.moveH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
-            this.moveH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
-            // 
-            // moveAH
-            // 
-            this.moveAH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.moveAH.Image = global::ProtProg.Properties.Resources.gir_anti_horario;
-            this.moveAH.Location = new System.Drawing.Point(12, 178);
-            this.moveAH.Name = "moveAH";
-            this.moveAH.Size = new System.Drawing.Size(70, 70);
-            this.moveAH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.moveAH.TabIndex = 4;
-            this.moveAH.TabStop = false;
-            this.moveAH.Tag = "mAH";
-            this.moveAH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
-            this.moveAH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
-            this.moveAH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
-            // 
-            // LoopPb
-            // 
-            this.LoopPb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LoopPb.Image = ((System.Drawing.Image)(resources.GetObject("LoopPb.Image")));
-            this.LoopPb.Location = new System.Drawing.Point(81, 248);
-            this.LoopPb.Name = "LoopPb";
-            this.LoopPb.Size = new System.Drawing.Size(70, 70);
-            this.LoopPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LoopPb.TabIndex = 7;
-            this.LoopPb.TabStop = false;
-            this.LoopPb.Tag = "mL";
-            this.LoopPb.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveLoop_DragDrop);
-            this.LoopPb.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveLoop_DragEnter);
-            this.LoopPb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveLoop_MouseDown);
             // 
             // Bt_LimparTB
             // 
@@ -507,6 +407,23 @@
             this.panel5.Size = new System.Drawing.Size(83, 393);
             this.panel5.TabIndex = 15;
             // 
+            // Bt_Conexao
+            // 
+            this.Bt_Conexao.Location = new System.Drawing.Point(756, 347);
+            this.Bt_Conexao.Name = "Bt_Conexao";
+            this.Bt_Conexao.Size = new System.Drawing.Size(188, 60);
+            this.Bt_Conexao.TabIndex = 15;
+            this.Bt_Conexao.Text = "Conexão";
+            this.Bt_Conexao.UseVisualStyleBackColor = true;
+            this.Bt_Conexao.Click += new System.EventHandler(this.Bt_Conexao_Click);
+            // 
+            // Bg_Worker
+            // 
+            this.Bg_Worker.WorkerReportsProgress = true;
+            this.Bg_Worker.WorkerSupportsCancellation = true;
+            this.Bg_Worker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Bg_Worker_DoWork);
+            this.Bg_Worker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.Bg_Worker_ProgressChanged);
+            // 
             // LoopPcBox2
             // 
             this.LoopPcBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -520,6 +437,7 @@
             // LoopPcBox5
             // 
             this.LoopPcBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LoopPcBox5.Image = global::ProtProg.Properties.Resources.Invisivel;
             this.LoopPcBox5.Location = new System.Drawing.Point(6, 310);
             this.LoopPcBox5.Name = "LoopPcBox5";
             this.LoopPcBox5.Size = new System.Drawing.Size(70, 70);
@@ -550,6 +468,7 @@
             // LoopPcBox1
             // 
             this.LoopPcBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LoopPcBox1.Image = ((System.Drawing.Image)(resources.GetObject("LoopPcBox1.Image")));
             this.LoopPcBox1.Location = new System.Drawing.Point(6, 6);
             this.LoopPcBox1.Name = "LoopPcBox1";
             this.LoopPcBox1.Size = new System.Drawing.Size(70, 70);
@@ -557,30 +476,125 @@
             this.LoopPcBox1.TabIndex = 1;
             this.LoopPcBox1.TabStop = false;
             // 
-            // Bt_Conexao
+            // moveF
             // 
-            this.Bt_Conexao.Location = new System.Drawing.Point(756, 347);
-            this.Bt_Conexao.Name = "Bt_Conexao";
-            this.Bt_Conexao.Size = new System.Drawing.Size(188, 60);
-            this.Bt_Conexao.TabIndex = 15;
-            this.Bt_Conexao.Text = "Conexão";
-            this.Bt_Conexao.UseVisualStyleBackColor = true;
-            this.Bt_Conexao.Click += new System.EventHandler(this.Bt_Conexao_Click);
+            this.moveF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.moveF.Image = global::ProtProg.Properties.Resources.reto2;
+            this.moveF.Location = new System.Drawing.Point(81, 109);
+            this.moveF.Name = "moveF";
+            this.moveF.Size = new System.Drawing.Size(70, 70);
+            this.moveF.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.moveF.TabIndex = 0;
+            this.moveF.TabStop = false;
+            this.moveF.Tag = "Up";
+            this.moveF.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
+            this.moveF.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
+            this.moveF.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
             // 
-            // Bg_Worker
+            // moveH
             // 
-            this.Bg_Worker.WorkerReportsProgress = true;
-            this.Bg_Worker.WorkerSupportsCancellation = true;
-            this.Bg_Worker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Bg_Worker_DoWork);
-            this.Bg_Worker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.Bg_Worker_ProgressChanged);
+            this.moveH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.moveH.Image = global::ProtProg.Properties.Resources.gir_horario;
+            this.moveH.Location = new System.Drawing.Point(150, 178);
+            this.moveH.Name = "moveH";
+            this.moveH.Size = new System.Drawing.Size(70, 70);
+            this.moveH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.moveH.TabIndex = 3;
+            this.moveH.TabStop = false;
+            this.moveH.Tag = "mH";
+            this.moveH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
+            this.moveH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
+            this.moveH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
             // 
-            // Lb_EstadoLoopBox
+            // moveAH
             // 
-            this.Lb_EstadoLoopBox.AutoSize = true;
-            this.Lb_EstadoLoopBox.Location = new System.Drawing.Point(92, 334);
-            this.Lb_EstadoLoopBox.Name = "Lb_EstadoLoopBox";
-            this.Lb_EstadoLoopBox.Size = new System.Drawing.Size(0, 13);
-            this.Lb_EstadoLoopBox.TabIndex = 26;
+            this.moveAH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.moveAH.Image = global::ProtProg.Properties.Resources.gir_anti_horario;
+            this.moveAH.Location = new System.Drawing.Point(12, 178);
+            this.moveAH.Name = "moveAH";
+            this.moveAH.Size = new System.Drawing.Size(70, 70);
+            this.moveAH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.moveAH.TabIndex = 4;
+            this.moveAH.TabStop = false;
+            this.moveAH.Tag = "mAH";
+            this.moveAH.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
+            this.moveAH.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
+            this.moveAH.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
+            // 
+            // LoopPb
+            // 
+            this.LoopPb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LoopPb.Image = ((System.Drawing.Image)(resources.GetObject("LoopPb.Image")));
+            this.LoopPb.Location = new System.Drawing.Point(81, 248);
+            this.LoopPb.Name = "LoopPb";
+            this.LoopPb.Size = new System.Drawing.Size(70, 70);
+            this.LoopPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LoopPb.TabIndex = 7;
+            this.LoopPb.TabStop = false;
+            this.LoopPb.Tag = "mL";
+            this.LoopPb.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveLoop_DragDrop);
+            this.LoopPb.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveLoop_DragEnter);
+            this.LoopPb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveLoop_MouseDown);
+            // 
+            // cmd5
+            // 
+            this.cmd5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cmd5.Location = new System.Drawing.Point(6, 311);
+            this.cmd5.Name = "cmd5";
+            this.cmd5.Size = new System.Drawing.Size(70, 70);
+            this.cmd5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cmd5.TabIndex = 5;
+            this.cmd5.TabStop = false;
+            // 
+            // cmd4
+            // 
+            this.cmd4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cmd4.Location = new System.Drawing.Point(6, 234);
+            this.cmd4.Name = "cmd4";
+            this.cmd4.Size = new System.Drawing.Size(70, 70);
+            this.cmd4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cmd4.TabIndex = 5;
+            this.cmd4.TabStop = false;
+            // 
+            // cmd3
+            // 
+            this.cmd3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cmd3.Location = new System.Drawing.Point(6, 158);
+            this.cmd3.Name = "cmd3";
+            this.cmd3.Size = new System.Drawing.Size(70, 70);
+            this.cmd3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cmd3.TabIndex = 3;
+            this.cmd3.TabStop = false;
+            // 
+            // cmd2
+            // 
+            this.cmd2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cmd2.Location = new System.Drawing.Point(6, 82);
+            this.cmd2.Name = "cmd2";
+            this.cmd2.Size = new System.Drawing.Size(70, 70);
+            this.cmd2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cmd2.TabIndex = 2;
+            this.cmd2.TabStop = false;
+            // 
+            // cmd1
+            // 
+            this.cmd1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cmd1.Location = new System.Drawing.Point(6, 6);
+            this.cmd1.Name = "cmd1";
+            this.cmd1.Size = new System.Drawing.Size(70, 70);
+            this.cmd1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cmd1.TabIndex = 1;
+            this.cmd1.TabStop = false;
+            // 
+            // Bt_LimparTudo
+            // 
+            this.Bt_LimparTudo.Location = new System.Drawing.Point(12, 383);
+            this.Bt_LimparTudo.Name = "Bt_LimparTudo";
+            this.Bt_LimparTudo.Size = new System.Drawing.Size(208, 60);
+            this.Bt_LimparTudo.TabIndex = 16;
+            this.Bt_LimparTudo.Text = "Limpar Tudo";
+            this.Bt_LimparTudo.UseVisualStyleBackColor = true;
+            this.Bt_LimparTudo.Click += new System.EventHandler(this.Bt_LimparTudo_Click);
             // 
             // Principal
             // 
@@ -606,19 +620,10 @@
             this.Load += new System.EventHandler(this.Principal_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Principal_KeyDown);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmd5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmd4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmd3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmd2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmd1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.moveF)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moveH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.moveAH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LoopPb)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -628,6 +633,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.moveAH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LoopPb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmd1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -678,6 +692,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button Bt_LimparLoop;
         private System.Windows.Forms.Label Lb_EstadoLoopBox;
+        private System.Windows.Forms.Button Bt_LimparTudo;
     }
 }
 

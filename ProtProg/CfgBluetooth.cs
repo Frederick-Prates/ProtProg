@@ -52,7 +52,7 @@ namespace ProtProg
                 RadioMode mode = myRadio.Mode; //Verifica modo do Bluetooth
                 // myRadio.Mode = RadioMode.Discoverable; // Configura modo para Discoverable
                 Lb_StatusBT1.Text = "Ativado"; //Atualiza status como Ativado
-                Lb_StatusBT1.ForeColor = System.Drawing.Color.Green; // Muda cor de ativado para verde
+                Lb_StatusBT1.ForeColor = System.Drawing.Color.DarkGreen; // Muda cor de ativado para verde
                 Lb_EndBT1.Text = Convert.ToString(myRadio.LocalAddress); // Exibe mac address local
                 Lb_NomeBT1.Text = myRadio.Name; // Exibe nome do dispositivo local
                 Lb_ModoBT1.Text = mode.ToString(); // Exibe modo do Bluetooth
@@ -160,7 +160,7 @@ namespace ProtProg
             if (pair)
             {
                 Lb_ParRes.Text = "Sim"; // Escreve Sim no label de Pareado
-                Lb_ParRes.ForeColor = System.Drawing.Color.Green; // Troca cor da fonte para verde
+                Lb_ParRes.ForeColor = System.Drawing.Color.DarkGreen; // Troca cor da fonte para verde
                 Bt_Conectar.Enabled = true; // Habilita botão de Conectar
             }
             else
