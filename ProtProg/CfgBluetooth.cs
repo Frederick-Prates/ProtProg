@@ -14,7 +14,7 @@ namespace ProtProg
             InitializeComponent();
             Estado_inicial(); // Inicializa configuração de Estado Inicial
         }
-
+        
         private bool enviar_Principal; // Variavel booleana usada como intermediária para modificar o valor de Bt_Enviar.Enabled 
         // da janela Principal.
 
@@ -73,12 +73,14 @@ namespace ProtProg
                     this.Hide(); //Esconde janela
                     MessageBox.Show("Desconectou com sucesso"); // Exibe mensagem de sucesso na desconexão.
                     Enviar_Principal = true; //Habilita botão de Envio da janela Principal.
+                    if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Desconectou serial.");
                 }
                 //Se algo der errado...
                 catch (Exception c1)
                 {
                     MessageBox.Show("Não foi possível desconectar.");
                     Console.WriteLine(c1);
+                    if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Não desconectou serial(FALHA).");
                 }
             }
             // Se conexão não estiver aberta...
@@ -92,12 +94,14 @@ namespace ProtProg
                     MessageBox.Show("Conectou com sucesso"); // Exibe msg de sucesso na conexão.
                     Bt_Conectar.Text = "Desconectar"; // Altera texto do botão para Desconectar.
                     this.Hide(); //Esconde janela
+                    if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Conectou serial.");
                 }
                 //Se algo der errado...
                 catch (Exception c2)
                 {
                     MessageBox.Show("Algo deu errado... Verifique se a porta está correta.");
                     Console.WriteLine(c2);
+                    if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Não conectou serial(FALHA).");
                 }
             }
         }
@@ -106,6 +110,7 @@ namespace ProtProg
         private void Bt_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close(); // Esconde janela
+            if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Cancelar na janela Configuração Bluetooth.");
         }
 
         // A dialog da 32Feet permite enchergar e selecionar dispositivos bluetooth que já estiveram conectados
@@ -199,12 +204,14 @@ namespace ProtProg
         private void Bt_Dialog_Click(object sender, EventArgs e)
         {
             Dialog32feet();
+            if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Localizar Dispositivo.");
         }
 
         // Atualiza lista de Portas COM disponíveis 
         private void Bt_Atualizar_Click(object sender, EventArgs e)
         {
             AtualizarListaCOM();
+            if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Atualizar do groupbox da serial.");
         }
 
         private void AtualizarListaCOM()
@@ -212,17 +219,14 @@ namespace ProtProg
             Cb_COM.Items.Clear(); // Limpa a lista de COMs
             Cb_COM.Items.AddRange(SerialPort.GetPortNames()); // Adiciona lista de COMs disponíveis
             Cb_COM.Items.Add("Nenhuma"); // Adiciona item "Nenhuma"
-            try
-            {
-                Cb_COM.SelectedItem = Cb_COM.Items[0]; // Seleciona primeiro item da lista
-            }
-            catch (Exception c4) { Console.WriteLine(c4); }
+            Cb_COM.SelectedItem = Cb_COM.Items[0]; // Seleciona primeiro item da lista
         }
 
         // Quando clickar no Botão Atualizar Status ele verifica o status do bluetooth local
         private void Bt_AtualizarStatusBT_Click(object sender, EventArgs e)
         {
             DisplayBluetoothRadio();
+            if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Atualizar Status.");
         }
 
         // Quando a janela de configuração de conexão é aberta pela primeira vez, é verificado o status do bluetooth

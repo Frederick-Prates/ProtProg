@@ -16,7 +16,7 @@ namespace ProtProg
 
         // Variáveis Globais
         CfgBluetooth btcfg = new CfgBluetooth();
-        Log LogAcoes = new Log();
+        public static Log LogAcoes = new Log();
         public static SerialPort ProtBT = new SerialPort();
         String Comandos = null;
         String Cmd_loop = null;
@@ -147,6 +147,7 @@ namespace ProtProg
         {
             PictureBox pb = (PictureBox)sender;
             pb.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Concluiu DROP de um dos icones de movimento simples.");
         }
 
         // Drag and Drop do Loop box
@@ -185,10 +186,12 @@ namespace ProtProg
             if ((Bitmap)e.Data.GetData(DataFormats.Bitmap) != LoopPb.Image)
             {
                 pb.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Concluiu DROP da Loop Box.");
             }
             else
             {
                 MessageBox.Show("Infelizmente não é possível utilizar a Loop Box dentro do loop.");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " FALHA NO DROP: Tentou colocar a Loop Box dentro do bloco de repetição.");
             }
         }
         // Fim da Configuração do Drag and Drop
@@ -504,6 +507,7 @@ namespace ProtProg
         // Botão que abre dialog para configurar o pareamento de bluetooth e serial
         private void Bt_Conexao_Click(object sender, EventArgs e)
         {
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Conexão.");
             btcfg.ShowDialog(); // Mostra janela de configuração da conexão.
             // Se o botão Enviar não estiver habilitado, então ...
             if (!Bt_Enviar.Enabled)
@@ -512,8 +516,6 @@ namespace ProtProg
                                                             // a desconexão da serial pelo dialog, então volta a habilitar o enviar.
                 Bt_Enviar.Text = "Enviar"; // Altera texto do botão Enviar de Ocupado para Enviar
             }
-
-            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Conexão.");
         }
         
         // Monta o comando para ser enviado pela serial
@@ -606,7 +608,7 @@ namespace ProtProg
         // Captura o evento de fechamento da janela e encerra comunicação serial se ela estiver aberta
         private void Principal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            // Salva arquivo aberto se o log de ações estiver ativo.
+            // Salva arquivo se o log de ações estiver ativo.
             if (LogAcoes.EstadoLog)
             {
                 LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Fechou programa.");
