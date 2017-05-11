@@ -38,6 +38,7 @@ namespace ProtProg
             // Se igual a null então dispositivo está desligado.
             if (myRadio == null)
             {
+                Bt_Dialog.Enabled = false; // Desabilita botão Localizar Dispositivo
                 Lb_StatusBT1.Text = "Desativado"; // Mostra status como desativado
                 Lb_StatusBT1.ForeColor = System.Drawing.Color.Red; // Mostra desativado na cor vermelha
                 Lb_EndBT1.Text = ""; // Limpa endereço
@@ -49,6 +50,7 @@ namespace ProtProg
             // Se estiver ligado então..
             else
             {
+                Bt_Dialog.Enabled = true; // Habilita botão Localizar Dispositivo
                 RadioMode mode = myRadio.Mode; //Verifica modo do Bluetooth
                 // myRadio.Mode = RadioMode.Discoverable; // Configura modo para Discoverable
                 Lb_StatusBT1.Text = "Ativado"; //Atualiza status como Ativado
@@ -214,6 +216,7 @@ namespace ProtProg
             if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Atualizar do groupbox da serial.");
         }
 
+        // Método para atualizar a combo box com as portas COM
         private void AtualizarListaCOM()
         {
             Cb_COM.Items.Clear(); // Limpa a lista de COMs
