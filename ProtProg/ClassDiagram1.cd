@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="ProtProg.CfgBluetooth">
+    <Position X="8.75" Y="2.25" Width="2.5" />
+    <Members>
+      <Field Name="Bt_Atualizar" Hidden="true" />
+      <Field Name="Bt_AtualizarStatusBT" Hidden="true" />
+      <Field Name="Bt_Cancelar" Hidden="true" />
+      <Field Name="Bt_Conectar" Hidden="true" />
+      <Field Name="Bt_Dialog" Hidden="true" />
+      <Field Name="Cb_BaudRate" Hidden="true" />
+      <Field Name="Cb_COM" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="groupBox1" Hidden="true" />
+      <Field Name="groupBox2" Hidden="true" />
+      <Field Name="groupBox3" Hidden="true" />
+      <Field Name="groupBox4" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="Lb_ClasseBT" Hidden="true" />
+      <Field Name="Lb_ClasseBT1" Hidden="true" />
+      <Field Name="lb_COM" Hidden="true" />
+      <Field Name="Lb_Disp" Hidden="true" />
+      <Field Name="Lb_DispRes" Hidden="true" />
+      <Field Name="Lb_EndBT" Hidden="true" />
+      <Field Name="Lb_EndBT1" Hidden="true" />
+      <Field Name="Lb_EndeRes" Hidden="true" />
+      <Field Name="Lb_ModoBT" Hidden="true" />
+      <Field Name="Lb_ModoBT1" Hidden="true" />
+      <Field Name="Lb_NomeBT" Hidden="true" />
+      <Field Name="Lb_NomeBT1" Hidden="true" />
+      <Field Name="Lb_ParRes" Hidden="true" />
+      <Field Name="Lb_StatusBT" Hidden="true" />
+      <Field Name="Lb_StatusBT1" Hidden="true" />
+      <Field Name="Lb_TipoRes" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QECgpCChhCAAEBAAQGigCBICAIAgEJAEACIABAgAAGA=</HashCode>
+      <FileName>CfgBluetooth.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProtProg.Log">
+    <Position X="8.75" Y="6.75" Width="2.25" />
+    <Members>
+      <Field Name="Bt_CancelarLog" Hidden="true" />
+      <Field Name="Bt_ComecarLog" Hidden="true" />
+      <Field Name="Bt_Dir" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="Lb_LogAtual" Hidden="true" />
+      <Field Name="Tb_Arquivos" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAACAAEBAAAAKACAADAEAAEoEAAAQgAAAACAA=</HashCode>
+      <FileName>Log.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProtProg.Principal">
+    <Position X="5.5" Y="2.25" Width="2.75" />
+    <Members>
+      <Field Name="Bg_Worker" Hidden="true" />
+      <Field Name="Bloco_Removedor" Hidden="true" />
+      <Field Name="Bt_Conexao" Hidden="true" />
+      <Field Name="Bt_Enviar" Hidden="true" />
+      <Field Name="Bt_Gerar" Hidden="true" />
+      <Field Name="Bt_LimparCmds" Hidden="true" />
+      <Field Name="Bt_LimparLoop" Hidden="true" />
+      <Field Name="Bt_LimparTB" Hidden="true" />
+      <Field Name="Bt_LimparTudo" Hidden="true" />
+      <Field Name="Bt_Literal" Hidden="true" />
+      <Field Name="cmd1" Hidden="true" />
+      <Field Name="cmd2" Hidden="true" />
+      <Field Name="cmd3" Hidden="true" />
+      <Field Name="cmd4" Hidden="true" />
+      <Field Name="cmd5" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label10" Hidden="true" />
+      <Field Name="label11" Hidden="true" />
+      <Field Name="label12" Hidden="true" />
+      <Field Name="label13" Hidden="true" />
+      <Field Name="label14" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+      <Field Name="label8" Hidden="true" />
+      <Field Name="label9" Hidden="true" />
+      <Field Name="Lb_EstadoLoopBox" Hidden="true" />
+      <Field Name="Lb_Removedor" Hidden="true" />
+      <Field Name="LoopPb" Hidden="true" />
+      <Field Name="LoopPcBox1" Hidden="true" />
+      <Field Name="LoopPcBox2" Hidden="true" />
+      <Field Name="LoopPcBox3" Hidden="true" />
+      <Field Name="LoopPcBox4" Hidden="true" />
+      <Field Name="LoopPcBox5" Hidden="true" />
+      <Field Name="moveAH" Hidden="true" />
+      <Field Name="moveF" Hidden="true" />
+      <Field Name="moveH" Hidden="true" />
+      <Field Name="numericUpDown1" Hidden="true" />
+      <Field Name="panel1" Hidden="true" />
+      <Field Name="panel2" Hidden="true" />
+      <Field Name="panel3" Hidden="true" />
+      <Field Name="panel4" Hidden="true" />
+      <Field Name="panel5" Hidden="true" />
+      <Field Name="TB_lit" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>8QBCAIiAgiAQ45AMegHDEAIaQgVAFACCBUQJAQacQDg=</HashCode>
+      <FileName>Principal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProtProg.Program" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bluetooth.Model.Device" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAIAABABEAAAAAAAgAAAAAAAAAAAqAABAAAA=</HashCode>
+      <FileName>Model\Device.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProtProg.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAREAABAQAAAgAAAAAAARAABIE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProtProg.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bluetooth.Services.ReceiverBluetoothService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EEgAAAAAACACAAAAgAAAAAEAAAAACACAIAAAAAAAAAA=</HashCode>
+      <FileName>Services\ReceiverBluetoothService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.127" Collapsed="true" />
+  </Class>
+  <Class Name="Bluetooth.Services.SenderBluetoothService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAABACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\SenderBluetoothService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

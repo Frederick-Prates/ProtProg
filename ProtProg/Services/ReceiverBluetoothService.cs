@@ -113,7 +113,8 @@ namespace Bluetooth.Services
             }
             catch (Exception exception)
             {
-               // todo handle the exception
+                Console.WriteLine(exception);
+                // todo handle the exception
             }
         }
 

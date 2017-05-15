@@ -139,8 +139,6 @@ namespace ProtProg
                 bool pair = Pareamento(Selecionado);
                 // Atualiza informações do dispositivo
                 AtualizaStatus(Selecionado, pair);
-                // Cria serial
-                Cria_BTSerialCOM(Selecionado);
             }
         }
 
@@ -191,6 +189,8 @@ namespace ProtProg
             {
                 // Feedback para o usuário informando que o dispositivo foi pareado.
                 MessageBox.Show(" Dispositivo " + Selecionado.DeviceName + " pareado!");
+                // Cria serial
+                Cria_BTSerialCOM(Selecionado);
                 return (true);
             }
             else
