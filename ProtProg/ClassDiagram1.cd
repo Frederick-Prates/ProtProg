@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
   <Class Name="ProtProg.CfgBluetooth">
     <Position X="8.75" Y="2.25" Width="2.5" />
     <Members>
@@ -67,20 +67,31 @@
       <Field Name="Bg_Worker" Hidden="true" />
       <Field Name="Bloco_Removedor" Hidden="true" />
       <Field Name="Bt_Conexao" Hidden="true" />
+      <Method Name="Bt_Conexao_Click" Hidden="true" />
       <Field Name="Bt_Enviar" Hidden="true" />
+      <Method Name="Bt_Enviar_Click" Hidden="true" />
       <Field Name="Bt_Gerar" Hidden="true" />
+      <Method Name="Bt_Gerar_Click" Hidden="true" />
       <Field Name="Bt_LimparCmds" Hidden="true" />
+      <Method Name="Bt_LimparCmds_Click" Hidden="true" />
       <Field Name="Bt_LimparLoop" Hidden="true" />
+      <Method Name="Bt_LimparLoop_Click" Hidden="true" />
       <Field Name="Bt_LimparTB" Hidden="true" />
+      <Method Name="Bt_LimparTB_Click" Hidden="true" />
       <Field Name="Bt_LimparTudo" Hidden="true" />
+      <Method Name="Bt_LimparTudo_Click" Hidden="true" />
       <Field Name="Bt_Literal" Hidden="true" />
+      <Method Name="Bt_Literal_Click" Hidden="true" />
+      <Field Name="Cmd_loop" Hidden="true" />
       <Field Name="cmd1" Hidden="true" />
       <Field Name="cmd2" Hidden="true" />
       <Field Name="cmd3" Hidden="true" />
       <Field Name="cmd4" Hidden="true" />
       <Field Name="cmd5" Hidden="true" />
+      <Field Name="Comandos" Hidden="true" />
       <Field Name="components" Hidden="true" />
       <Method Name="Dispose" Hidden="true" />
+      <Method Name="EstadoLoopBox" Hidden="true" />
       <Method Name="InitializeComponent" Hidden="true" />
       <Field Name="label1" Hidden="true" />
       <Field Name="label10" Hidden="true" />
@@ -98,6 +109,10 @@
       <Field Name="label9" Hidden="true" />
       <Field Name="Lb_EstadoLoopBox" Hidden="true" />
       <Field Name="Lb_Removedor" Hidden="true" />
+      <Method Name="LimparCmds" Hidden="true" />
+      <Method Name="LimparLoop" Hidden="true" />
+      <Method Name="LimparTudo" Hidden="true" />
+      <Method Name="LimparTxt" Hidden="true" />
       <Field Name="LoopPb" Hidden="true" />
       <Field Name="LoopPcBox1" Hidden="true" />
       <Field Name="LoopPcBox2" Hidden="true" />
@@ -107,12 +122,16 @@
       <Field Name="moveAH" Hidden="true" />
       <Field Name="moveF" Hidden="true" />
       <Field Name="moveH" Hidden="true" />
+      <Field Name="NomePrograma" Hidden="true" />
       <Field Name="numericUpDown1" Hidden="true" />
       <Field Name="panel1" Hidden="true" />
       <Field Name="panel2" Hidden="true" />
       <Field Name="panel3" Hidden="true" />
       <Field Name="panel4" Hidden="true" />
       <Field Name="panel5" Hidden="true" />
+      <Method Name="Principal_FormClosed" Hidden="true" />
+      <Method Name="Principal_KeyDown" Hidden="true" />
+      <Method Name="Principal_Load" Hidden="true" />
       <Field Name="TB_lit" Hidden="true" />
     </Members>
     <TypeIdentifier>

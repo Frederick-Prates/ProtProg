@@ -514,6 +514,7 @@ namespace ProtProg
             {
                 Bt_Enviar.Enabled = btcfg.Enviar_Principal; // Se botão Enviar estiver desabilitado e usuário fizer
                                                             // a desconexão da serial pelo dialog, então volta a habilitar o enviar.
+                if (Bg_Worker.IsBusy) Bg_Worker.CancelAsync(); //Se estiver em execução, cancela.
                 Bt_Enviar.Text = "Enviar"; // Altera texto do botão Enviar de Ocupado para Enviar
             }
         }
