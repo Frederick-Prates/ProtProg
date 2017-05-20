@@ -111,7 +111,7 @@ namespace ProtProg
         // Ao clickar no botão Cancelar a janela é escondida
         private void Bt_Cancelar_Click(object sender, EventArgs e)
         {
-            this.Close(); // Esconde janela
+            this.Close(); // Fecha janela
             if (Principal.LogAcoes.EstadoLog) Principal.LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Cancelar na janela Configuração Bluetooth.");
         }
 
@@ -142,20 +142,18 @@ namespace ProtProg
             }
         }
 
-        // Cria serial para o dispositivo pareado
-        private void Cria_BTSerialCOM(BluetoothDeviceInfo Selecionado)
+        // Habilita a Serial para o dispositivo
+        private void Habilita_BTSerialCOM(BluetoothDeviceInfo Selecionado)
         {
-            bool Estado = true;
             try
             {
-                Selecionado.SetServiceState(BluetoothService.SerialPort, Estado, true);
-                AtualizarListaCOM();
+                Selecionado.SetServiceState(BluetoothService.SerialPort, true, true);
             }
             catch (Exception c3)
             {
-                AtualizarListaCOM();
                 Console.WriteLine(c3);
             }
+            AtualizarListaCOM();
         }
 
         // Atualiza labels com o status da conexão bluetooth
@@ -189,8 +187,8 @@ namespace ProtProg
             {
                 // Feedback para o usuário informando que o dispositivo foi pareado.
                 MessageBox.Show(" Dispositivo " + Selecionado.DeviceName + " pareado!");
-                // Cria serial
-                Cria_BTSerialCOM(Selecionado);
+                // Habilita serial
+                Habilita_BTSerialCOM(Selecionado);
                 return (true);
             }
             else

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
   <Class Name="ProtProg.CfgBluetooth">
     <Position X="8.75" Y="2.25" Width="2.5" />
     <Members>
@@ -39,7 +39,7 @@
       <Field Name="Lb_TipoRes" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>QECgpCChhCAAEBAAQGigCBICAIAgEJAEACIABAgAAGA=</HashCode>
+      <HashCode>QECgpCChhCAAEBAAQGCgCBICAIAgEJCEACIABAgAAGA=</HashCode>
       <FileName>CfgBluetooth.cs</FileName>
     </TypeIdentifier>
   </Class>

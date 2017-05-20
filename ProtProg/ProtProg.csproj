@@ -164,10 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ProtProg_TemporaryKey.pfx" />
-    <None Include="Resources\logo-puc_minas_fundo_transparente_grande.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logo-puc-minas.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gir_anti_horario.png" />
