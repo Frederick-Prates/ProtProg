@@ -121,17 +121,8 @@
   <data name="a1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\123123123123312312313132312.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="a3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ultimate-31-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="a2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\50518-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="reto2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reto2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Reto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gir_horario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gir_horario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

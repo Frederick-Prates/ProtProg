@@ -73,26 +73,6 @@ namespace ProtProg.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap a2 {
-            get {
-                object obj = ResourceManager.GetObject("a2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap a3 {
-            get {
-                object obj = ResourceManager.GetObject("a3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap gir_anti_horario {
             get {
                 object obj = ResourceManager.GetObject("gir_anti_horario", resourceCulture);
@@ -116,16 +96,6 @@ namespace ProtProg.Properties {
         internal static System.Drawing.Bitmap Invisivel {
             get {
                 object obj = ResourceManager.GetObject("Invisivel", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Reto {
-            get {
-                object obj = ResourceManager.GetObject("Reto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
