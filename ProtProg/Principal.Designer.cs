@@ -44,6 +44,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.Lb_Removedor = new System.Windows.Forms.Label();
+            this.Bloco_Removedor = new System.Windows.Forms.PictureBox();
             this.Bt_LimparTudo = new System.Windows.Forms.Button();
             this.Lb_EstadoLoopBox = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -74,8 +76,6 @@
             this.LoopPcBox1 = new System.Windows.Forms.PictureBox();
             this.Bt_Conexao = new System.Windows.Forms.Button();
             this.Bg_Worker = new System.ComponentModel.BackgroundWorker();
-            this.Lb_Removedor = new System.Windows.Forms.Label();
-            this.Bloco_Removedor = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmd5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmd4)).BeginInit();
@@ -84,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmd1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Bloco_Removedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveAH)).BeginInit();
@@ -96,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Bloco_Removedor)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -267,6 +267,32 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(232, 461);
             this.panel3.TabIndex = 10;
+            // 
+            // Lb_Removedor
+            // 
+            this.Lb_Removedor.AutoSize = true;
+            this.Lb_Removedor.CausesValidation = false;
+            this.Lb_Removedor.Enabled = false;
+            this.Lb_Removedor.Location = new System.Drawing.Point(85, 209);
+            this.Lb_Removedor.Name = "Lb_Removedor";
+            this.Lb_Removedor.Size = new System.Drawing.Size(62, 13);
+            this.Lb_Removedor.TabIndex = 28;
+            this.Lb_Removedor.Text = "Removedor";
+            // 
+            // Bloco_Removedor
+            // 
+            this.Bloco_Removedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Bloco_Removedor.Image = global::ProtProg.Properties.Resources.Invisivel;
+            this.Bloco_Removedor.Location = new System.Drawing.Point(81, 182);
+            this.Bloco_Removedor.Name = "Bloco_Removedor";
+            this.Bloco_Removedor.Size = new System.Drawing.Size(70, 70);
+            this.Bloco_Removedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Bloco_Removedor.TabIndex = 27;
+            this.Bloco_Removedor.TabStop = false;
+            this.Bloco_Removedor.Tag = "Remover_CMD";
+            this.Bloco_Removedor.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
+            this.Bloco_Removedor.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
+            this.Bloco_Removedor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
             // 
             // Bt_LimparTudo
             // 
@@ -466,7 +492,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(217, 51);
+            this.label9.Location = new System.Drawing.Point(215, 51);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 20;
@@ -601,32 +627,6 @@
             this.Bg_Worker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Bg_Worker_DoWork);
             this.Bg_Worker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.Bg_Worker_ProgressChanged);
             // 
-            // Lb_Removedor
-            // 
-            this.Lb_Removedor.AutoSize = true;
-            this.Lb_Removedor.CausesValidation = false;
-            this.Lb_Removedor.Enabled = false;
-            this.Lb_Removedor.Location = new System.Drawing.Point(85, 209);
-            this.Lb_Removedor.Name = "Lb_Removedor";
-            this.Lb_Removedor.Size = new System.Drawing.Size(62, 13);
-            this.Lb_Removedor.TabIndex = 28;
-            this.Lb_Removedor.Text = "Removedor";
-            // 
-            // Bloco_Removedor
-            // 
-            this.Bloco_Removedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Bloco_Removedor.Image = global::ProtProg.Properties.Resources.Invisivel;
-            this.Bloco_Removedor.Location = new System.Drawing.Point(81, 182);
-            this.Bloco_Removedor.Name = "Bloco_Removedor";
-            this.Bloco_Removedor.Size = new System.Drawing.Size(70, 70);
-            this.Bloco_Removedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Bloco_Removedor.TabIndex = 27;
-            this.Bloco_Removedor.TabStop = false;
-            this.Bloco_Removedor.Tag = "Remover_CMD";
-            this.Bloco_Removedor.DragDrop += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragDrop);
-            this.Bloco_Removedor.DragEnter += new System.Windows.Forms.DragEventHandler(this.MoveCmd_DragEnter);
-            this.Bloco_Removedor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MoveCmd_MouseDown);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -660,6 +660,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Bloco_Removedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.moveAH)).EndInit();
@@ -673,7 +674,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LoopPcBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Bloco_Removedor)).EndInit();
             this.ResumeLayout(false);
 
         }
