@@ -123,7 +123,7 @@ namespace ProtProg
                 PictureBox pb = (PictureBox)sender;
                 pb.Select();
                 pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou um dos icones de movimento simples.");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou ícone.");
             }
             catch(Exception p1)
             {
@@ -147,7 +147,7 @@ namespace ProtProg
         {
             PictureBox pb = (PictureBox)sender;
             pb.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
-            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Concluiu DROP de um dos icones de movimento simples.");
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Concluiu DROP no Bloco de Comando.");
         }
 
         // Drag and Drop do Loop box
@@ -158,16 +158,14 @@ namespace ProtProg
                 PictureBox pb = (PictureBox)sender;
                 pb.Select();
                 pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou Loop Box.");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou ícone.");
             }
             catch(Exception p2)
             {
                 Console.Write(p2);
             }
         }
-
         
-
         private void MoveLoop_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Bitmap))
@@ -186,7 +184,7 @@ namespace ProtProg
             if ((Bitmap)e.Data.GetData(DataFormats.Bitmap) != LoopPb.Image)
             {
                 pb.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Concluiu DROP da Loop Box.");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Concluiu DROP no Bloco de Repetição.");
             }
             else
             {
