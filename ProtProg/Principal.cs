@@ -123,7 +123,7 @@ namespace ProtProg
                 PictureBox pb = (PictureBox)sender;
                 pb.Select();
                 pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou ícone.");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Pegou ícone.");
             }
             catch(Exception p1)
             {
@@ -147,7 +147,7 @@ namespace ProtProg
         {
             PictureBox pb = (PictureBox)sender;
             pb.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
-            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Concluiu DROP no Bloco de Comando.");
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Concluiu DROP no Bloco de Comando.");
         }
 
         // Drag and Drop do Loop box
@@ -158,7 +158,7 @@ namespace ProtProg
                 PictureBox pb = (PictureBox)sender;
                 pb.Select();
                 pb.DoDragDrop(pb.Image, DragDropEffects.Copy);
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Pegou ícone.");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Pegou ícone.");
             }
             catch(Exception p2)
             {
@@ -184,12 +184,12 @@ namespace ProtProg
             if ((Bitmap)e.Data.GetData(DataFormats.Bitmap) != LoopPb.Image)
             {
                 pb.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap);
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Concluiu DROP no Bloco de Repetição.");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Concluiu DROP no Bloco de Repetição.");
             }
             else
             {
                 MessageBox.Show("Infelizmente não é possível utilizar a Loop Box dentro do loop.");
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " FALHA NO DROP: Tentou colocar a Loop Box dentro do bloco de repetição.");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " FALHA NO DROP: Tentou colocar a Loop Box dentro do bloco de repetição.");
             }
         }
         // Fim da Configuração do Drag and Drop
@@ -226,7 +226,7 @@ namespace ProtProg
             {
                 Console.WriteLine(p3);
             }
-            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Literal");
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Literal");
         }
         
         // Monta o comando do bloco de comando
@@ -421,21 +421,21 @@ namespace ProtProg
         private void Bt_LimparTB_Click(object sender, EventArgs e)
         {
             LimparTxt();    //limpa caixa de texto
-            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Limpar Texto.");
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Limpar Texto.");
         }
 
         // Botão que limpa Loop
         private void Bt_LimparLoop_Click(object sender, EventArgs e)
         {
             LimparLoop();   //limpa bloco de loop
-            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Limpar Loop.");
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Limpar Loop.");
         }
 
         // Botão que limpa comandos
         private void Bt_LimparCmds_Click(object sender, EventArgs e)
         {
             LimparCmds();   //limpa bloco de comandos
-            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Limpar Comandos.");
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Limpar Comandos.");
         }
 
         //Limpa bloco de loop
@@ -476,13 +476,13 @@ namespace ProtProg
             {
                 MessageBox.Show("Loop salvo na Loop Box!");
                 EstadoLoopBox(true);
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Gerar. Gerou com sucesso");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Gerar. Gerou com sucesso");
             }
             else
             {
                 MessageBox.Show("Bloco de loop vazio! Gerou Loop Box vazia.");
                 EstadoLoopBox(false);
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Gerar. Gerou Loop Box vazia");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Gerar. Gerou Loop Box vazia");
             }
             
         }
@@ -505,7 +505,7 @@ namespace ProtProg
         // Botão que abre dialog para configurar o pareamento de bluetooth e serial
         private void Bt_Conexao_Click(object sender, EventArgs e)
         {
-            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Conexão.");
+            if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Conexão.");
             btcfg.ShowDialog(); // Mostra janela de configuração da conexão.
             // Se o botão Enviar não estiver habilitado, então ...
             if (!Bt_Enviar.Enabled)
@@ -543,7 +543,7 @@ namespace ProtProg
                         ProtBT.WriteLine(ComandoMontado()); //Envia comando para Prototipo
                         Bt_Enviar.Enabled = false; // Desabilita botão e só volta a habilitar quando confirmar fim da execução
                         Bt_Enviar.Text = "Ocupado"; // Altera texto do botão Enviar
-                        if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e enviou com sucesso");
+                        if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Enviar e enviou com sucesso");
                     }
                 }
                 // Caso haja alguma falha...
@@ -552,14 +552,14 @@ namespace ProtProg
                     //Avisa usuário que comando não foi enviado
                     TB_lit.AppendText("\nComando não enviado.");
                     Console.WriteLine(p4);
-                    if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (problema no ENVIO).");
+                    if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (problema no ENVIO).");
                 }
             }
             // Senão estiver aberta então...
             else
             {
                 MessageBox.Show("Protótipo ainda não conectado.");
-                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (SERIAL Fechada).");
+                if (LogAcoes.EstadoLog) LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Clicou em Enviar e falhou (SERIAL Fechada).");
             }
         }
 
@@ -610,7 +610,7 @@ namespace ProtProg
             // Salva arquivo se o log de ações estiver ativo.
             if (LogAcoes.EstadoLog)
             {
-                LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"MM\/dd\/yyyy HH:mm:ss") + " Fechou programa.");
+                LogAcoes.sw.WriteLine(DateTime.Now.ToString(@"dd\/MM\/yyyy HH:mm:ss") + " Fechou programa.");
                 LogAcoes.sw.Close(); // Fecha escritor do arquivo.
             }
             if (ProtBT.IsOpen) ProtBT.Close(); // Encerra conexão serial.
